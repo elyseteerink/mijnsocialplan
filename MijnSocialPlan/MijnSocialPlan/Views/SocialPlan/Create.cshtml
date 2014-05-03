@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Nieuw Social Plan maken";
 }
-<h2>@ViewBag.Title.</h2>
+<h2 id="plantitel">@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 
@@ -13,108 +13,381 @@
         <li><a href="#content" data-toggle="tab">Content</a></li>
         <li><a href="#planning" data-toggle="tab">Planning</a></li>
     </ul>
-    <div id="myTabContent" class="tab-content">
+    <div id="myTabContent" class="col-lg-12 tab-content">
         <div class="tab-pane fade active in" id="algemeen">
+            <h3>Algemeen</h3>
+            <br />
             <div class="form-group">
                 <label for="inputTitel" class="col-lg-2 control-label">Titel</label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputTitel" placeholder="Naam project">
+                <div class="col-lg-3">
+                    <input type="text" onblur="setTitel();" class="form-control" id="inputTitel" placeholder="Naam project">
                 </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <br />
+            <div id="contactpersoonRow" class="contactpersoonRow form-group">
+                <label for="inputContactpersoonNaam" class="col-lg-2 control-label">Contactpersoon</label>
+                <div class="col-lg-3">
+                    <input type="text" class="form-control inline" id="inputContactpersoonNaam" placeholder="Naam contactpersoon">
+                    <input type="text" class="form-control inline" id="inputContactpersoonEmail" placeholder="Email">
+                    <input type="text" class="form-control inline" id="inputContactpersoonTelefoon" placeholder="Telefoon">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <div class="form-group">
-                <label for="inputContactpersoonNaam" class="col-lg-2 control-label">Contactpersoon</label>
-                <div class="col-lg-12">
-                    <div class="inputs-row">
-                        <input type="text" class="form-control inline-inputs" id="inputContactpersoonNaam" placeholder="Naam contactpersoon">
-                        <input type="text" class="form-control inline-inputs" id="inputContactpersoonEmail" placeholder="Email">
-                        <input type="text" class="form-control inline-inputs" id="inputContactpersoonTelefoon" placeholder="Telefoon">
-                    </div>
-                    <button type="button" class="btn btn-default btn-xs nogeenknop block-inputs">
-                        <span class="glyphicon glyphicon-plus"></span> Nog een toevoegen
-                    </button></div>
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusContactpersoon">
+                        <span class="glyphicon glyphicon-plus"></span> Contactpersoon
+                    </button>
+                </div>
             </div>
-            
+            <br />
+            <div class="form-group">
+                <label for="inputAfspraken" class="col-lg-2 control-label">Afspraken</label>
+                <div class="col-lg-9">
+                    <textarea class="form-control" rows="6" id="inputAfspraken" placeholder=""></textarea>
+                    <span class="help-block">
+                        Afspraken over social media gebruik door alle betrokken partijen.
+                    </span>
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <br/>
+            <div id="urlRow" class="urlRow form-group">
+                <label for="inputUrl" class="col-lg-2 control-label">URL</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control inline" id="inputUrl" placeholder="http://www....">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusUrl">
+                        <span class="glyphicon glyphicon-plus"></span> URL
+                    </button>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-10">
+                    <a href="#" onclick="activeTab('analyse');" data-toggle="tab" class="col-lg-3 btn btn-success btn-md">
+                        <span class="glyphicon glyphicon-chevron-right"></span> Verder naar Analyse
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="analyse">
-            <button type="button" class="btn btn-default btn-xs nogeenknop">
-                <span class="glyphicon glyphicon-plus"></span> Nog een toevoegen
-            </button>
+            <h3>Analyse</h3>
+            <br />
+            <div class="form-group">
+                <label for="inputDoelgroep" class="col-lg-2 control-label">Doelgroep</label>
+                <div class="col-lg-9">
+                    <textarea class="form-control" rows="6" id="inputDoelgroep" placeholder=""></textarea>
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="inputToonStijl" class="col-lg-2 control-label">Toon/Stijl</label>
+                <div class="col-lg-9">
+                    <textarea class="form-control" rows="6" id="inputToonStijl" placeholder=""></textarea>
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="inputPropositie" class="col-lg-2 control-label">Propositie</label>
+                <div class="col-lg-9">
+                    <textarea class="form-control" rows="3" id="inputPropositie" placeholder=""></textarea>
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <br />
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                <h4>Succesfactoren, kansen en gevaren</h4>
+            </div>
+            <br />
+            <div id="succesfactorRow" class="succesfactorRow form-group">
+                <label for="inputSuccesfactor" class="col-lg-2 control-label">Succesfactor</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control inline" id="inputSuccesfactor" placeholder="">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusSuccesfactor">
+                        <span class="glyphicon glyphicon-plus"></span> Succesfactor
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div id="kansRow" class="kansRow form-group">
+                <label for="inputKans" class="col-lg-2 control-label">Kans</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control inline" id="inputKans" placeholder="">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusKans">
+                        <span class="glyphicon glyphicon-plus"></span> Kans
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div id="gevaarRow" class="gevaarRow form-group">
+                <label for="inputGevaar" class="col-lg-2 control-label">Gevaar</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control inline" id="inputGevaar" placeholder="">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusGevaar">
+                        <span class="glyphicon glyphicon-plus"></span> Gevaar
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                <h4>Onze doelen.</h4>
+            </div>
+            <div id="onsdoelRow" class="onsdoelRow form-group">
+                <label for="inputOnsdoel" class="col-lg-2 control-label">Doel</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control inline" id="inputOnsdoel" placeholder="">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusOnsdoel">
+                        <span class="glyphicon glyphicon-plus"></span> Doel
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                <h4>Doelen van volgers.</h4>
+            </div>
+            <br />
+            <div id="volgersdoelRow" class="volgersdoelRow form-group">
+                <label for="inputVolgersdoel" class="col-lg-2 control-label">Doel</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control inline" id="inputVolgersdoel" placeholder="">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusVolgersdoel">
+                        <span class="glyphicon glyphicon-plus"></span> Doel
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                <h4>Welke hashtags (#) en communities leven er omheen?</h4>
+            </div>
+            <br />
+            <div id="hashtagRow" class="hashtagRow form-group">
+                <label for="inputHashtag" class="col-lg-2 control-label">#</label>
+                <div class="col-lg-3">
+                    <input type="text" class="form-control inline" id="inputHashtag" placeholder="#voorbeeld">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusHashtag">
+                        <span class="glyphicon glyphicon-plus"></span> Hashtag
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div id="communityRow" class="communityRow form-group">
+                <label for="inputCommunity" class="col-lg-2 control-label">Community</label>
+                <div class="col-lg-6">
+                    <input type="text" class="half form-control inline" id="inputCommunity" placeholder="Naam community">
+                    <input type="text" class="half form-control inline" id="inputCommunityUrl" placeholder="http://www...">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusCommunity">
+                        <span class="glyphicon glyphicon-plus"></span> Community
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-10">
+                    <a href="#" onclick="activeTab('content');" data-toggle="tab" class="col-lg-3 btn btn-success btn-md">
+                        <span class="glyphicon glyphicon-chevron-right"></span> Verder naar Content
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="content">
+            <h3>Content</h3>
+            <br />
+            <div class="col-lg-12">
+                <h4>Cores & paths</h4>
+            </div>
+            <br />
+            <div id="padnaarbinnenbox" class="corespathsbox col-lg-3 inline">
+                <input type="text" class="form-control inline" id="inputPadnaarbinnen" placeholder="pad naar binnen...">
+                
+                <button type="button" class="vol btn btn-primary btn-md" onclick="plusPadNaarBinnen(this);">
+                    <span class="glyphicon glyphicon-plus inline"></span> Pad naar binnen
+                </button>
+            </div>
+            <div class="forwardarrow col-lg-1">
+            </div>
+            <div id="contentbox" class="corespathsbox col-lg-3 inline">
+                <input type="text" class="form-control inline" id="inputContent-1" placeholder="content..." onblur="contentItemIngevuld(this);">
+                <button type="button" class="vol btn btn-primary btn-md" onclick="plusContent(this);">
+                    <span class="glyphicon glyphicon-plus inline"></span> Content
+                </button>
+            </div>
+            <div class="forwardarrow col-lg-1">
+                
+            </div>
+            <div id="padnaarbuitenbox" class="corespathsbox col-lg-3 inline">
+                <input type="text" class="form-control inline" id="inputPadnaarbinnen" placeholder="pad naar buiten...">
+                <button type="button" class="vol btn btn-primary btn-md" onclick="plusPadNaarBuiten(this);">
+                    <span class="glyphicon glyphicon-plus inline"></span> Pad naar buiten
+                </button>
+            </div>
+            &nbsp;
+            <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             
+            <div class="col-lg-12 block" style="clear: both; height: 50px;"></div>
+
+            <br />
+            <div id="contentUitwerking-1" class="contentUitwerking col-lg-12" style="display: none;">
+                <h4 class="contentTitel">Content titel</h4>
+                <div class="form-group">
+                    <label for="selectSoortpost" class="col-lg-2">Soort post</label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="selectSoortpost">
+                            <option>Humor</option>
+                            <option>Informatief</option>
+                            <option>Winactie</option>
+                        </select>
+                    </div>
+                    &nbsp;
+                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="checkboxOnderdelen" class="col-lg-2">Onderdelen</label>
+                    <div class="col-lg-1">
+                        <input type="checkbox" /> Video <br />
+                        <input type="checkbox" /> Foto <br />
+                        <input type="checkbox" /> Tekst
+                    </div>
+                    &nbsp;
+                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="radioShareablelikable" class="col-lg-2">Likable/Shareble</label>
+                    <div class="col-lg-1">
+
+                        <input type="radio" name="radioShareablelikable" /> Like <br />
+                        <input type="radio" name="radioShareablelikable" /> Share
+                    </div>
+                    &nbsp;
+                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+                </div>
+                <br />
+                <div id="calltoactionRow" class="calltoactionRow form-group">
+                    <label for="inputCalltoaction" class="col-lg-2">Call to action</label>
+                    <div class="col-lg-3">
+                        <input type="text" class="form-control inline" id="inputCalltoaction" placeholder="action...">
+                    </div>
+                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="button" class="btn btn-primary btn-md" onclick="plusCallToAction(this);">
+                            <span class="glyphicon glyphicon-plus"></span> Call to action
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="col-lg-12 block" style="clear: both; height: 50px;"></div>
+
+            <div class="form-group">
+
+                <div class="col-lg-12">
+                    <a href="#" onclick="activeTab('planning');" data-toggle="tab" class="col-lg-3 btn btn-success btn-md">
+                        <span class="glyphicon glyphicon-chevron-right"></span> Verder naar Planning
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="planning">
-            <fieldset>
-                <legend>Legend</legend>
-                <div class="form-group">
-                    <label for="inputTitel" class="col-lg-2 control-label">Titel</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputTitel" placeholder="Email">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                    <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Checkbox
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-                    <div class="col-lg-10">
-                        <textarea class="form-control" rows="3" id="textArea"></textarea>
-                        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-2 control-label">Radios</label>
-                    <div class="col-lg-10">
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                Option one is this
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                Option two can be something else
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Selects</label>
-                    <div class="col-lg-10">
-                        <select class="form-control" id="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                        <br>
-                        <select multiple="" class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-            </fieldset>    
+            <h3>Planning</h3>
+            <br />
+        </div>
+
+    </div><!--tab-->
+
+</form>
+
+
+<div class="modal" id="removeContentItemSure">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#removeContentItemSure').fadeOut();">×</button>
+                <h4 class="modal-title">Content item verwijderen</h4>
+            </div>
+            <div class="modal-body">
+                <p>Weet je zeker dat je dit content item wil verijderen?</p>
+                <p>Daarmee verwijder je ook het bijhorende onderstaande...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="$('#removeContentItemSure').fadeOut();" data-dismiss="modal">Annuleren</button>
+                <button id="removeContentItemConfirmButton" type="button" class="btn btn-danger" onclick="removeContent(removeContentCallerTemp);">Verwijder</button>
+            </div>
         </div>
     </div>
-    
-</form>
+</div>
