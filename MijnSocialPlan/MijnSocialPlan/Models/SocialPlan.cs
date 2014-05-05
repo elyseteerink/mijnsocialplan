@@ -10,6 +10,9 @@ namespace MijnSocialPlan.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long SocialPlanID { get; set; }
+
+        public string UserName { get; set; }
+
         public string Title { get; set; }
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - MijnSocialPlan.nl</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -27,9 +27,11 @@
                         <ul class="dropdown-menu" aria-labelledby="download">
                             <li><a href="#">Sluipschutters</a></li>
                             <li><a href="#">DAEVN</a></li>
+                            <li>@Html.Action("GetUserSocialPlannenMenu", "SocialPlan")</li>
                             <li class="divider"></li>
                             <li>
-                            <a href="SocialPlan/Create"><span class="glyphicon glyphicon-plus"></span> Nieuw plan maken</a></li>
+                                <a href="~/SocialPlan/Create"><span class="glyphicon glyphicon-plus"></span> Nieuw plan maken</a>
+                            </li>
                         </ul>
                     </li>
                     <li>@Html.ActionLink("Handleiding", "Handleiding", "Home")</li>

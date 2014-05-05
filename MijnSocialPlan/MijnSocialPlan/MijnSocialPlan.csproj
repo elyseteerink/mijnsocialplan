@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SocialPlanController.cs" />
+    <Compile Include="Controllers\TestSocialPlanController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,6 +221,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Handleiding.cshtml" />
     <Content Include="Views\SocialPlan\Create.cshtml" />
+    <Content Include="Views\TestSocialPlan\Create.cshtml" />
+    <Content Include="Views\TestSocialPlan\Delete.cshtml" />
+    <Content Include="Views\TestSocialPlan\Details.cshtml" />
+    <Content Include="Views\TestSocialPlan\Edit.cshtml" />
+    <Content Include="Views\TestSocialPlan\Index.cshtml" />
+    <Content Include="Views\SocialPlan\SocialPlannenMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
