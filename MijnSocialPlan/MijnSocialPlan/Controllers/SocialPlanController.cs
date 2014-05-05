@@ -13,16 +13,14 @@ namespace MijnSocialPlan.Controllers
 
         public PartialViewResult GetUserSocialPlannenMenu()
         {
-            List<SocialPlan> usersPlannen = null;
+            List<SocialPlan> usersPlannen = new List<SocialPlan>();
 
-            if(this.User.Identity.IsAuthenticated)
+            if (this.User.Identity.IsAuthenticated)
             {
                 usersPlannen = db.SocialPlannen.Where(p => p.UserName == this.User.Identity.Name).ToList();
             }
 
-            //....
-
-            return PartialView("SocialPlannenMenu");
+            return PartialView("SocialPlannenMenu", usersPlannen);
         }
 
         //
@@ -32,6 +30,7 @@ namespace MijnSocialPlan.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();

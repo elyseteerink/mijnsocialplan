@@ -25,9 +25,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Mijn Social Plannen <span class="caret"></span></a>
                         <ul class="dropdown-menu" aria-labelledby="download">
-                            <li><a href="#">Sluipschutters</a></li>
-                            <li><a href="#">DAEVN</a></li>
-                            <li>@Html.Action("GetUserSocialPlannenMenu", "SocialPlan")</li>
+                            @Html.Action("GetUserSocialPlannenMenu", "SocialPlan")
                             <li class="divider"></li>
                             <li>
                                 <a href="~/SocialPlan/Create"><span class="glyphicon glyphicon-plus"></span> Nieuw plan maken</a>

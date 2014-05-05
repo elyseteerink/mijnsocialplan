@@ -50,6 +50,7 @@ namespace MijnSocialPlan.Controllers
         {
             if (ModelState.IsValid)
             {
+                socialplan.UserName = this.User.Identity.Name;
                 db.SocialPlannen.Add(socialplan);
                 db.SaveChanges();
                 return RedirectToAction("Index");
