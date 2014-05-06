@@ -24,7 +24,7 @@ namespace MijnSocialPlan.Controllers
         }
 
         //
-        // GET: /SocailPlan/
+        // GET: /SocialPlan/
         public ActionResult Index()
         {
             return View();

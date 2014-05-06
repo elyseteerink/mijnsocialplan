@@ -16,4 +16,60 @@ namespace MijnSocialPlan.Models
         {
         }
     }
+
+    public class DbInitializer : DropCreateDatabaseAlways<MijnSocialPlanDbContext>
+    {
+        protected override void Seed(MijnSocialPlanDbContext context)
+        {
+            base.Seed(context);
+
+            RegisterViewModel mMenno = new RegisterViewModel()
+            {
+                UserName = "Menno",
+                Password = "M3nj00p3nj00",
+                ConfirmPassword = "M3nj00p3nj00"
+            };
+
+            ApplicationUser uMenno = new ApplicationUser() {
+                UserName = mMenno.UserName
+            };
+
+            Startup.UserManagerFactory().CreateAsync(uMenno, mMenno.Password);
+
+            RegisterViewModel mElyse = new RegisterViewModel()
+            {
+                UserName = "Elyse",
+                Password = "ikweljijniet18",
+                ConfirmPassword = "ikweljijniet18"
+            };
+
+            ApplicationUser uElyse = new ApplicationUser()
+            {
+                UserName = mElyse.UserName
+            };
+
+            Startup.UserManagerFactory().CreateAsync(uElyse, mElyse.Password);
+
+
+
+            //Social plannen aanmaken
+            SocialPlan p1 = new SocialPlan() {
+                Title = "Plan Elyse ",
+                UserName = uElyse.UserName
+            };
+        
+            SocialPlan p2 = new SocialPlan()
+            {
+                Title = "Plan Menno",
+                UserName = uMenno.UserName
+            };
+
+            context.SocialPlannen.Add(p1);
+            context.SocialPlannen.Add(p2);
+
+            //Opslaan
+            context.SaveChanges();
+        }
+
+    }
 }
