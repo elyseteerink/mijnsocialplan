@@ -10,7 +10,7 @@
         $.ajax({
             type: 'POST',
             url: '@Url.Action("Save", "SocialPlan")',
-            //data: $('#socialplanform').serialize(),
+            data: $('#socialplanform').serialize(),
             success: function (response) {
                 alert("save success " + response);
             },
