@@ -4,8 +4,26 @@
 <h2 id="plantitel">@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
+<script>
 
-<form class="form-horizontal">
+    function saveSocialPlanAjax() {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Save", "SocialPlan")',
+            //data: $('#socialplanform').serialize(),
+            success: function (response) {
+                alert("save success " + response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('error: ' + errorThrown);
+            }
+        });
+    }
+</script>
+
+<a href="#" onclick="saveSocialPlanAjax();">SaveTest</a>
+
+<form id="socialplanform" class="form-horizontal">
 
     <ul class="nav nav-tabs" style="margin-bottom: 15px;">
         <li class="active"><a href="#algemeen" data-toggle="tab">Algemeen</a></li>

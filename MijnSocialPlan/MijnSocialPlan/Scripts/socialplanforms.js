@@ -84,7 +84,7 @@ function plusCallToAction (caller) {
     var newInput = '<div id="calltoactionRow" class="calltoactionRow calltoactionRow-extra form-group"><label for="inputCalltoaction" class="col-lg-2">Call to action</label><div class="col-lg-3"><input type="text" class="form-control inline" id="inputCalltoaction" placeholder="action..."></div><button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button></div>';
 
     $(newInput).insertBefore($(caller).parent().parent());
-};
+}
 
 
 function plusPadNaarBinnen(caller) {
@@ -150,11 +150,11 @@ $('.infoknop').popover('hide');
 
 function activeTab(tab) {
     $('.nav-tabs a[href="#' + tab + '"]').tab('show');
-};
+}
 
 function setTitel() {
     $('#plantitel').text($('#inputTitel').val());
-};
+}
 
 function contentItemIngevuld(input)
 {
@@ -162,11 +162,9 @@ function contentItemIngevuld(input)
 
     $('#contentUitwerking-' + contentBlockId).slideDown();
 
-    if ($(input).val() != "") {
+    if ($(input).val() !== "") {
         $('#contentUitwerking-' + contentBlockId + ' h4.contentTitel').text($(input).val());
-    } else if ($(input).val() == "") {
+    } else if ($(input).val() === "") {
         $('#contentUitwerking-' + contentBlockId).slideUp();
     }
-    
 }
-

@@ -7,10 +7,12 @@ using System.Web.Mvc;
 
 namespace MijnSocialPlan.Controllers
 {
+    //[Authorize]
     public class SocialPlanController : Controller
     {
         private MijnSocialPlanDbContext db = new MijnSocialPlanDbContext();
 
+        [AllowAnonymous]
         public PartialViewResult GetUserSocialPlannenMenu()
         {
             List<SocialPlan> usersPlannen = new List<SocialPlan>();
@@ -30,10 +32,21 @@ namespace MijnSocialPlan.Controllers
             return View();
         }
 
-        [Authorize]
+        
         public ActionResult Create()
         {
+            Console.WriteLine("Create!");
+
             return View();
+        }
+
+        [HttpPost]
+        //[Route("SocialPlan/Save")]
+        public ActionResult Save()
+        {
+            Console.WriteLine("Save!");
+
+            return null;
         }
 	}
 }
