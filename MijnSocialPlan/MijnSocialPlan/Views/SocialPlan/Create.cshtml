@@ -6,19 +6,7 @@
 
 <script>
 
-    function saveSocialPlanAjax() {
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("Save", "SocialPlan")',
-            data: $('#socialplanform').serialize(),
-            success: function (response) {
-                alert("save success " + response);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert('error: ' + errorThrown);
-            }
-        });
-    }
+    
 </script>
 
 <a href="#" onclick="saveSocialPlanAjax();">SaveTest</a>

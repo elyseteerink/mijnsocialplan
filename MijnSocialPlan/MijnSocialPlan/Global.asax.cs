@@ -19,6 +19,8 @@ namespace MijnSocialPlan
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());  
+
             //Toegevoegd om de database initieel te vullen met testdata
             Database.SetInitializer(new DbInitializer());
             MijnSocialPlanDbContext c = new MijnSocialPlanDbContext();

@@ -42,7 +42,7 @@ namespace MijnSocialPlan.Controllers
 
         [HttpPost]
         //[Route("SocialPlan/Save")]
-        public ActionResult Save(object data)
+        public ActionResult Save(SocialPlan socialPlan)
         {
             Console.WriteLine("Save!");
 
