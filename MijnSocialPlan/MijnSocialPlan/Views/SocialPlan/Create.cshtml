@@ -6,7 +6,25 @@
 
 <script>
 
-    
+    function saveSocialPlanAjax() {
+
+        var socialPlan = $('form#socialplanform').serializeJSON();
+
+        alert(socialPlan);
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Save", "SocialPlan")',
+            data: socialPlan,
+            contentType: 'application/json; charset=utf-8',
+            success: function (response) {
+                alert("save success " + response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('error: ' + errorThrown);
+            }
+        });
+    }
 </script>
 
 <a href="#" onclick="saveSocialPlanAjax();">SaveTest</a>
@@ -26,7 +44,8 @@
             <div class="form-group">
                 <label for="inputTitel" class="col-lg-2 control-label">Titel</label>
                 <div class="col-lg-3">
-                    <input type="text" onblur="setTitel();" class="form-control" id="inputTitel" placeholder="Naam project">
+                    <input type="hidden" name="socialplan[socialplanid]" value="">
+                    <input type="text" onblur="setTitel();" class="form-control" id="inputTitel" name="socialplan[titel]" placeholder="Naam project">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -34,9 +53,9 @@
             <div id="contactpersoonRow" class="contactpersoonRow form-group">
                 <label for="inputContactpersoonNaam" class="col-lg-2 control-label">Contactpersoon</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control inline" id="inputContactpersoonNaam" placeholder="Naam contactpersoon">
-                    <input type="text" class="form-control inline" id="inputContactpersoonEmail" placeholder="Email">
-                    <input type="text" class="form-control inline" id="inputContactpersoonTelefoon" placeholder="Telefoon">
+                    <input type="text" class="form-control inline" id="inputContactpersoonNaam" name="socialplan[contactpersonen][][naam]" placeholder="Naam contactpersoon">
+                    <input type="text" class="form-control inline" id="inputContactpersoonEmail" name="socialplan[contactpersonen][][email]" placeholder="Email">
+                    <input type="text" class="form-control inline" id="inputContactpersoonTelefoon" name="socialplan[contactpersonen][][telefoon]" placeholder="Telefoon">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -53,7 +72,7 @@
             <div class="form-group">
                 <label for="inputAfspraken" class="col-lg-2 control-label">Afspraken</label>
                 <div class="col-lg-9">
-                    <textarea class="form-control" rows="6" id="inputAfspraken" placeholder=""></textarea>
+                    <textarea class="form-control" rows="6" id="inputAfspraken" name="socialplan[afspraken]" placeholder=""></textarea>
                     <span class="help-block">
                         Afspraken over social media gebruik door alle betrokken partijen.
                     </span>
@@ -64,7 +83,7 @@
             <div id="urlRow" class="urlRow form-group">
                 <label for="inputUrl" class="col-lg-2 control-label">URL</label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control inline" id="inputUrl" placeholder="http://www....">
+                    <input type="text" class="form-control inline" id="inputUrl" name="socialplan[urls][]" placeholder="http://www....">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -95,7 +114,7 @@
             <div class="form-group">
                 <label for="inputDoelgroep" class="col-lg-2 control-label">Doelgroep</label>
                 <div class="col-lg-9">
-                    <textarea class="form-control" rows="6" id="inputDoelgroep" placeholder=""></textarea>
+                    <textarea class="form-control" rows="6" id="inputDoelgroep" name="socialplan[doelgroep]" placeholder=""></textarea>
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -103,7 +122,7 @@
             <div class="form-group">
                 <label for="inputToonStijl" class="col-lg-2 control-label">Toon/Stijl</label>
                 <div class="col-lg-9">
-                    <textarea class="form-control" rows="6" id="inputToonStijl" placeholder=""></textarea>
+                    <textarea class="form-control" rows="6" id="inputToonStijl" name="socialplan[toonstijl]" placeholder=""></textarea>
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -111,7 +130,7 @@
             <div class="form-group">
                 <label for="inputPropositie" class="col-lg-2 control-label">Propositie</label>
                 <div class="col-lg-9">
-                    <textarea class="form-control" rows="3" id="inputPropositie" placeholder=""></textarea>
+                    <textarea class="form-control" rows="3" id="inputPropositie" name="socialplan[propositie]" placeholder=""></textarea>
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -124,7 +143,7 @@
             <div id="succesfactorRow" class="succesfactorRow form-group">
                 <label for="inputSuccesfactor" class="col-lg-2 control-label">Succesfactor</label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control inline" id="inputSuccesfactor" placeholder="">
+                    <input type="text" class="form-control inline" id="inputSuccesfactor" name="socialplan[succesfactoren][]" placeholder="">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -141,7 +160,7 @@
             <div id="kansRow" class="kansRow form-group">
                 <label for="inputKans" class="col-lg-2 control-label">Kans</label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control inline" id="inputKans" placeholder="">
+                    <input type="text" class="form-control inline" id="inputKans" name="socialplan[kansen][]" placeholder="">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -158,7 +177,7 @@
             <div id="gevaarRow" class="gevaarRow form-group">
                 <label for="inputGevaar" class="col-lg-2 control-label">Gevaar</label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control inline" id="inputGevaar" placeholder="">
+                    <input type="text" class="form-control inline" id="inputGevaar" name="socialplan[gevaren][]" placeholder="">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -179,7 +198,7 @@
             <div id="onsdoelRow" class="onsdoelRow form-group">
                 <label for="inputOnsdoel" class="col-lg-2 control-label">Doel</label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control inline" id="inputOnsdoel" placeholder="">
+                    <input type="text" class="form-control inline" id="inputOnsdoel" name="socialplan[doelenons][]" placeholder="">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -201,7 +220,7 @@
             <div id="volgersdoelRow" class="volgersdoelRow form-group">
                 <label for="inputVolgersdoel" class="col-lg-2 control-label">Doel</label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control inline" id="inputVolgersdoel" placeholder="">
+                    <input type="text" class="form-control inline" id="inputVolgersdoel" name="socialplan[doelenvolgers][]" placeholder="">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -223,7 +242,7 @@
             <div id="hashtagRow" class="hashtagRow form-group">
                 <label for="inputHashtag" class="col-lg-2 control-label">#</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control inline" id="inputHashtag" placeholder="#voorbeeld">
+                    <input type="text" class="form-control inline" id="inputHashtag" name="socialplan[hashtags][]" placeholder="#voorbeeld">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -240,8 +259,8 @@
             <div id="communityRow" class="communityRow form-group">
                 <label for="inputCommunity" class="col-lg-2 control-label">Community</label>
                 <div class="col-lg-6">
-                    <input type="text" class="half form-control inline" id="inputCommunity" placeholder="Naam community">
-                    <input type="text" class="half form-control inline" id="inputCommunityUrl" placeholder="http://www...">
+                    <input type="text" class="half form-control inline" id="inputCommunity" name="socialplan[communities][][naam]" placeholder="Naam community">
+                    <input type="text" class="half form-control inline" id="inputCommunityUrl" name="socialplan[communities][][url]" placeholder="http://www...">
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
@@ -273,7 +292,7 @@
             </div>
             <br />
             <div id="padnaarbinnenbox" class="corespathsbox col-lg-3 inline">
-                <input type="text" class="form-control inline" id="inputPadnaarbinnen" placeholder="pad naar binnen...">
+                <input type="text" class="form-control inline" id="inputPadnaarbinnen" name="socialplan[kanalen][][padennaarbinnen][]" placeholder="pad naar binnen...">
                 
                 <button type="button" class="vol btn btn-primary btn-md" onclick="plusPadNaarBinnen(this);">
                     <span class="glyphicon glyphicon-plus inline"></span> Pad naar binnen
@@ -282,7 +301,7 @@
             <div class="forwardarrow col-lg-1">
             </div>
             <div id="contentbox" class="corespathsbox col-lg-3 inline">
-                <input type="text" class="form-control inline" id="inputContent-1" placeholder="content..." onblur="contentItemIngevuld(this);">
+                <input type="text" class="form-control inline" id="inputContent-1" name="socialplan[kanalen][][contentitems][][titel]" placeholder="content..." onblur="contentItemIngevuld(this);">
                 <button type="button" class="vol btn btn-primary btn-md" onclick="plusContent(this);">
                     <span class="glyphicon glyphicon-plus inline"></span> Content
                 </button>
@@ -291,7 +310,7 @@
                 
             </div>
             <div id="padnaarbuitenbox" class="corespathsbox col-lg-3 inline">
-                <input type="text" class="form-control inline" id="inputPadnaarbinnen" placeholder="pad naar buiten...">
+                <input type="text" class="form-control inline" id="inputPadnaarbinnen" name="socialplan[kanalen][][padennaarbuiten][]" placeholder="pad naar buiten...">
                 <button type="button" class="vol btn btn-primary btn-md" onclick="plusPadNaarBuiten(this);">
                     <span class="glyphicon glyphicon-plus inline"></span> Pad naar buiten
                 </button>
@@ -320,9 +339,9 @@
                 <div class="form-group">
                     <label for="checkboxOnderdelen" class="col-lg-2">Onderdelen</label>
                     <div class="col-lg-1">
-                        <input type="checkbox" /> Video <br />
-                        <input type="checkbox" /> Foto <br />
-                        <input type="checkbox" /> Tekst
+                        <input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Video <br />
+                        <input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Foto <br />
+                        <input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Tekst
                     </div>
                     &nbsp;
                     <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>

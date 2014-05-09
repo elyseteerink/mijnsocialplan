@@ -166,7 +166,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Community.cs" />
+    <Compile Include="Models\Contactpersoon.cs" />
+    <Compile Include="Models\ContentItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Kanaal.cs" />
     <Compile Include="Models\MijnSocialPlanDbContext.cs" />
     <Compile Include="Models\SocialPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,10 +185,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\mijnsocialplan.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.serialize-object.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

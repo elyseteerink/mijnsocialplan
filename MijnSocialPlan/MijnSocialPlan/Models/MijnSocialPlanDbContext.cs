@@ -54,13 +54,13 @@ namespace MijnSocialPlan.Models
 
             //Social plannen aanmaken
             SocialPlan p1 = new SocialPlan() {
-                Title = "Plan Elyse",
+                Titel = "Plan Elyse",
                 UserName = uElyse.UserName
             };
         
             SocialPlan p2 = new SocialPlan()
             {
-                Title = "Plan Menno",
+                Titel = "Plan Menno",
                 UserName = uMenno.UserName
             };
 

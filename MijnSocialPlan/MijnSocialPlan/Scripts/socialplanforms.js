@@ -172,28 +172,3 @@ function contentItemIngevuld(input)
 
 
 
-function saveSocialPlanAjax() {
-
-    var mySocialPlan = new SocialPlan();
-
-    mySocialPlan.Name = $("#Name").val();
-    mySocialPlan.Description = $("#Description").val();
-    mySocialPlan.PrepTimeMinutes = $("#PrepTimeMinutes").val();
-    mySocialPlan.BakingTimeMinutes = $("#BakingTimeMinutes").val();
-    mySocialPlan.Servings = $("#Servings").val();
-
-    var postData = JSON.stringify(mySocialPlan);
-
-    $.ajax({
-        type: 'POST',
-        url: '@Url.Action("Save", "SocialPlan")',
-        data: postData,
-        contentType: 'application/json; charset=utf-8',
-        success: function (response) {
-            alert("save success " + response);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert('error: ' + errorThrown);
-        }
-    });
-}

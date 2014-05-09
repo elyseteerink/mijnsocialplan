@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -41,10 +42,27 @@ namespace MijnSocialPlan.Controllers
         }
 
         [HttpPost]
-        //[Route("SocialPlan/Save")]
         public ActionResult Save(SocialPlan socialPlan)
         {
-            Console.WriteLine("Save!");
+
+
+            //Indien nieuw plan
+            if (socialPlan.SocialPlanID == 0)
+            {
+                //Username zetten
+                socialPlan.UserName = this.User.Identity.Name;
+
+                //opslaan
+            }
+            //Bestaand plan
+            else
+            {
+                //wijzigen
+
+
+            }
+
+            //db.SaveChangesAsync();
 
             return null;
         }
