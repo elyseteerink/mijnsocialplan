@@ -97,18 +97,22 @@ function removePadNaarBinnen(caller) {
 }
 
 function plusContent(caller) {
-    var count = $('#contentbox input').length;
+    var count = $(caller).parent().find('input').length;
 
-    var newInput = '<div class="input-group" id="inputContentRow-' + (count + 1) + '" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputContent-' + (count + 1) + '" placeholder="content..." onblur="contentItemIngevuld(this);"><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
+    alert("aantal content inputs = " + count);
+
+    var kanaalID = $(caller).parents('.kanaalContentPanel').first().attr('id').split("-").pop();
+
+    var newInput = '<div class="input-group" id="inputContentRow-' + kanaalID + '-' + (count + 1) + '" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputContent-' + kanaalID + '-' + (count + 1) + '" placeholder="content..." onblur="contentItemIngevuld(this);"><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
     $(newInput).insertBefore(caller);
 
-    var contentBlock = $('#contentUitwerking-1').clone();
-    $(contentBlock).insertAfter('.contentUitwerking:last');
+    var contentBlock = $('#contentUitwerking-1-1').clone();
+    $(caller).parent().parent().append(contentBlock);//find('.contentUitwerking').last().insertAfter('.contentUitwerking:last');
 
-    $('.contentUitwerking:last').css('display', 'none');
-    $('.contentUitwerking:last').attr('id', 'contentUitwerking-' + (count + 1));
+    $(caller).parent().parent().find('.contentUitwerking:last').css('display', 'none');
+    $(caller).parent().parent().find('.contentUitwerking:last').attr('id', 'contentUitwerking-' + kanaalID + '-' + (count + 1));
 
-    $('.contentUitwerking:last .calltoactionRow-extra').remove();
+    $(caller).parent().parent().find('.contentUitwerking:last .calltoactionRow-extra').remove();
 
     $('.infoknop').popover('hide');
 }
@@ -127,12 +131,14 @@ function removeContent(caller) {
 
     var contentUitwerkingId = $(caller).parent().parent().attr('id').split("-").pop();
 
+    var kanaalID = $(caller).parents('.kanaalContentPanel').first().attr('id').split("-").pop();
+
     $(caller).parent().parent().fadeOut(500, function () {
         $(caller).parent().parent().remove();
     });
 
-    $('#contentUitwerking-' + contentUitwerkingId).slideUp(1000, function () {
-        $('#contentUitwerking-' + contentUitwerkingId).remove();
+    $('#contentUitwerking-' + kanaalID + '-' + contentUitwerkingId).slideUp(1000, function () {
+        $('#contentUitwerking-' + kanaalID + '-' + contentUitwerkingId).remove();
     });
 }
 
@@ -156,19 +162,182 @@ function setTitel() {
     $('#plantitel').text($('#inputTitel').val());
 }
 
+function kanaalTitelIngevuld(caller) {
+
+    if ($(caller).val() !== "") {
+        $(caller).parent().parent().parent().parent().find('h3.panel-title').first().text($(caller).val());
+        $(caller).parent().parent().parent().find('.kanaalContentContainer').first().slideDown();
+    } else if ($(caller).val() === "") {
+        $(caller).parent().parent().parent().parent().find('h3.panel-title').first().text("Nieuw kanaal");
+        $(caller).parent().parent().parent().find('.kanaalContentContainer').first().slideUp();
+    }
+}
+
 function contentItemIngevuld(input)
 {
     var contentBlockId = $(input).attr('id').split("-").pop();
 
-    $('#contentUitwerking-' + contentBlockId).slideDown();
+    var kanaalID = $(input).parents('.kanaalContentPanel').first().attr('id').split("-").pop();
 
     if ($(input).val() !== "") {
-        $('#contentUitwerking-' + contentBlockId + ' h4.contentTitel').text($(input).val());
+        $('#contentUitwerking-' + kanaalID + '-' + contentBlockId + ' h4.contentTitel').text($(input).val());
+        $('#contentUitwerking-' + kanaalID + '-' + contentBlockId).slideDown();
     } else if ($(input).val() === "") {
-        $('#contentUitwerking-' + contentBlockId).slideUp();
+        $('#contentUitwerking-' + kanaalID + '-' + contentBlockId).slideUp();
     }
 }
 
+function toggleKanaalPanel(id)
+{
+    var kanaalPanel = $('#kanaalContentPanel-' + id);
+    var panelBody = $(kanaalPanel).children('div.panel-body').first();
+    panelBody.slideToggle();
 
+    var chevron = $(kanaalPanel).find('div.panel-heading span').first();
 
+    if ($(chevron).hasClass('glyphicon-chevron-down'))
+    {
+        $(chevron).removeClass('glyphicon-chevron-down');
+        $(chevron).addClass('glyphicon-chevron-right');
+    }
+    else if ($(chevron).hasClass('glyphicon-chevron-right'))
+    {
+        $(chevron).removeClass('glyphicon-chevron-right');
+        $(chevron).addClass('glyphicon-chevron-down');
+    }
+}
 
+$('button#plusKanaal').click(function () {
+
+    var allePanels = $('.kanaalContentPanel');
+
+    var nieuwKanaalIDNr = allePanels.length + 1;
+
+    for (i = 0; i < allePanels.length; i++)
+    {
+        if ($(allePanels[i]).find('div.panel-heading span').first().hasClass('glyphicon-chevron-down'))
+            toggleKanaalPanel(i+1);
+    }
+
+    $('#kanaalContentPanelContainer').append('<div id="kanaalContentPanel-' + nieuwKanaalIDNr + '" class="kanaalContentPanel panel panel-default" style="display: none;">' +
+                    '<div class="panel-heading" onclick="toggleKanaalPanel(' + nieuwKanaalIDNr + ');">' +
+                        '<span class="glyphicon glyphicon-chevron-down" style="float:left; margin-right: 10px; cursor: pointer;"></span>' +
+                        '<h3 class="panel-title" style="float:left;">Nieuw kanaal</h3>' +
+                        '<span class="glyphicon glyphicon-remove" onclick="deleteKanaalPanel(' + nieuwKanaalIDNr + ');" style="float:right; cursor: pointer;"></span>' +
+                        '<div style="clear: both;"></div>' +
+                    '</div>' +
+                    '<div class="panel-body">' +
+
+                        '<div class="form-group">' +
+                            '<label for="inputKanaalTitel" class="col-lg-2 control-label">Social media kanaal</label>' +
+                            '<div class="col-lg-4">' +
+                                '<input type="text" onblur="kanaalTitelIngevuld(this);" class="form-control" id="inputKanaalTitel" placeholder="bijv. Facebook of Twitter">' +
+                            '</div>' +
+                            '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>' +
+                        '</div>' +
+
+                        '<div class="kanaalContentContainer" style="display: none">' +
+                            '<div class="col-lg-12">' +
+                                '<h4>Cores & paths</h4>' +
+                            '</div>' +
+                            '<br />' +
+                            '<div id="padnaarbinnenbox" class="corespathsbox col-lg-3 inline">' +
+                                '<input type="text" class="form-control inline" id="inputPadnaarbinnen" name="socialplan[kanalen][][padennaarbinnen][]" placeholder="pad naar binnen...">' +
+
+                                '<button type="button" class="vol btn btn-primary btn-md" onclick="plusPadNaarBinnen(this);">' +
+                                    '<span class="glyphicon glyphicon-plus inline"></span> Pad naar binnen' +
+                                '</button>' +
+                            '</div>' +
+                            '<div class="forwardarrow col-lg-1">' +
+                            '</div>' +
+                            '<div id="contentbox" class="corespathsbox col-lg-3 inline">' +
+                                '<input type="text" class="form-control inline" id="inputContent-1" name="socialplan[kanalen][][contentitems][][titel]" placeholder="content..." onblur="contentItemIngevuld(this);">' +
+                                '<button type="button" class="vol btn btn-primary btn-md" onclick="plusContent(this);">' +
+                                    '<span class="glyphicon glyphicon-plus inline"></span> Content' +
+                                '</button>' +
+                            '</div>' +
+                            '<div class="forwardarrow col-lg-1">' +
+
+                            '</div>' +
+                            '<div id="padnaarbuitenbox" class="corespathsbox col-lg-3 inline">' +
+                                '<input type="text" class="form-control inline" id="inputPadnaarbinnen" name="socialplan[kanalen][][padennaarbuiten][]" placeholder="pad naar buiten...">' +
+                                '<button type="button" class="vol btn btn-primary btn-md" onclick="plusPadNaarBuiten(this);">' +
+                                    '<span class="glyphicon glyphicon-plus inline"></span> Pad naar buiten' +
+                                '</button>' +
+                            '</div>' +
+                            '&nbsp;' +
+    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>' +
+
+    '<div class="col-lg-12 block" style="clear: both; height: 50px;"></div>' +
+
+    '<br />' +
+   ' <div id="contentUitwerking-' + nieuwKanaalIDNr + '-1" class="contentUitwerking col-lg-12" style="display: none;">' +
+       ' <h4 class="contentTitel">Content titel</h4>' +
+      '  <div class="form-group">' +
+       '     <label for="selectSoortpost" class="col-lg-2">Soort post</label>' +
+        '    <div class="col-lg-4">' +
+          '      <select class="form-control" id="selectSoortpost">' +
+            '        <option>Humor</option>' +
+            '        <option>Informatief</option>' +
+            '        <option>Winactie</option>' +
+           '     </select>' +
+          '  </div>' +
+        '    &nbsp;' +
+  '  <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>' +
+'</div>' +
+'<br />' +
+'<div class="form-group">' +
+  '  <label for="checkboxOnderdelen" class="col-lg-2">Onderdelen</label>' +
+  '  <div class="col-lg-1">' +
+   '     <input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Video <br />' +
+   '     <input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Foto <br />' +
+   '     <input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Tekst' +
+  '  </div>' +
+  '  &nbsp;' +
+  '  <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>' +
+'</div>' +
+'<br />' +
+'<div class="form-group">' +
+'    <label for="radioShareablelikable" class="col-lg-2">Likable/Shareble</label>' +
+'    <div class="col-lg-1">' +
+
+'        <input type="radio" name="radioShareablelikable" /> Like <br />' +
+ '       <input type="radio" name="radioShareablelikable" /> Share' +
+ '   </div>' +
+ '   &nbsp;' +
+ '   <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>' +
+'</div>' +
+'<br />' +
+'<div id="calltoactionRow" class="calltoactionRow form-group">' +
+ '   <label for="inputCalltoaction" class="col-lg-2">Call to action</label>' +
+  '  <div class="col-lg-3">' +
+   '     <input type="text" class="form-control inline" id="inputCalltoaction" placeholder="action...">' +
+   ' </div>' +
+   ' <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>' +
+'</div>' +
+'<div class="form-group">' +
+ '   <div class="col-lg-2">' +
+  '  </div>' +
+   ' <div class="col-lg-3">' +
+    '    <button type="button" class="btn btn-primary btn-md" onclick="plusCallToAction(this);">' +
+     '       <span class="glyphicon glyphicon-plus"></span> Call to action' +
+      '  </button>' +
+    '</div>' +
+'</div>' +
+'</div>' +
+'</div>' +
+'</div>' + 
+    '</div>');
+
+    $('#kanaalContentPanel-' + nieuwKanaalIDNr).slideDown();
+
+});
+
+function deleteKanaalPanel(id)
+{
+    var kanaalPanel = $('#kanaalContentPanel-' + id);
+    var panelBody = $(kanaalPanel).children('div.panel-body').first();
+    panelBody.slideUp(1000, function () {
+        $(kanaalPanel).remove();
+    });
+}
