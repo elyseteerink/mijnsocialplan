@@ -17,7 +17,7 @@ namespace MijnSocialPlan.Models
         }
     }
 
-    public class DbInitializer : DropCreateDatabaseAlways<MijnSocialPlanDbContext>
+    public class DbInitializer : DropCreateDatabaseIfModelChanges<MijnSocialPlanDbContext>
     {
         protected override void Seed(MijnSocialPlanDbContext context)
         {

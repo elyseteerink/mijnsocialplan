@@ -106,13 +106,68 @@ function plusContent(caller) {
     var newInput = '<div class="input-group" id="inputContentRow-' + kanaalID + '-' + (count + 1) + '" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputContent-' + kanaalID + '-' + (count + 1) + '" placeholder="content..." onblur="contentItemIngevuld(this);"><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
     $(newInput).insertBefore(caller);
 
-    var contentBlock = $('#contentUitwerking-1-1').clone();
+    var contentBlock = '<div id="contentUitwerking-' + kanaalID + '-' + (count + 1) + '" class="contentUitwerking col-lg-12" style="display: none;">'+
+                                '<h4 class="contentTitel">Content titel</h4>'+
+                                '<div class="form-group">'+
+                                    '<label for="selectSoortpost" class="col-lg-2">Soort post</label>'+
+                                    '<div class="col-lg-4">' +
+                                        '<select class="form-control" id="selectSoortpost">'+
+                                            '<option>Humor</option>'+
+                                            '<option>Informatief</option>'+
+                                            '<option>Winactie</option>'+
+                                        '</select>'+
+                                    '</div>'+
+                                    '&nbsp;'+
+                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>'+
+                                '</div>'+
+                                '<br />'+
+                                '<div class="form-group">'+
+                                    '<label for="checkboxOnderdelen" class="col-lg-2">Onderdelen</label>'+
+                                    '<div class="col-lg-1">'+
+                                        '<input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Video <br />' +
+                                        '<input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Foto <br />'+
+                                        '<input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Tekst'+
+                                    '</div>' +
+                                    '&nbsp;'+
+                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>'+
+                                '</div>' +
+                                '<br />'+
+                                '<div class="form-group">' +
+                                    '<label for="radioShareablelikable" class="col-lg-2">Likable/Shareble</label>' +
+                                    '<div class="col-lg-1">' +
+
+                                        '<input type="radio" name="radioShareablelikable" /> Like <br />' +
+                                        '<input type="radio" name="radioShareablelikable" /> Share' +
+                                    '</div>' +
+                                    '&nbsp;'+
+                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>'+
+                                '</div>' +
+                                '<br />' +
+                                '<div id="calltoactionRow" class="calltoactionRow form-group">'+
+                                    '<label for="inputCalltoaction" class="col-lg-2">Call to action</label>'+
+                                    '<div class="col-lg-3">'+
+                                        '<input type="text" class="form-control inline" id="inputCalltoaction" placeholder="action...">'+
+                                    '</div>'+
+                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>'+
+                                '</div>'+
+                                '<div class="form-group">'+
+                                    '<div class="col-lg-2">'+
+                                    '</div>'+
+                                    '<div class="col-lg-3">'+
+                                        '<button type="button" class="btn btn-primary btn-md" onclick="plusCallToAction(this);">'+
+                                            '<span class="glyphicon glyphicon-plus"></span> Call to action' +
+                                        '</button>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>';
+
+
     $(caller).parent().parent().append(contentBlock);//find('.contentUitwerking').last().insertAfter('.contentUitwerking:last');
 
-    $(caller).parent().parent().find('.contentUitwerking:last').css('display', 'none');
-    $(caller).parent().parent().find('.contentUitwerking:last').attr('id', 'contentUitwerking-' + kanaalID + '-' + (count + 1));
+    //$(caller).parent().parent().find('.contentUitwerking:last').css('display', 'none');
+    //$(caller).parent().parent().find('.contentUitwerking:last').attr('id', 'contentUitwerking-' + kanaalID + '-' + (count + 1));
 
-    $(caller).parent().parent().find('.contentUitwerking:last .calltoactionRow-extra').remove();
+    //$(caller).parent().parent().find('.contentUitwerking:last .calltoactionRow-extra').remove();
 
     $('.infoknop').popover('hide');
 }
