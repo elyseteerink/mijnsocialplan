@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HandleidingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SocialPlanController.cs" />
     <Compile Include="Controllers\TestSocialPlanController.cs" />
@@ -179,6 +180,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\clouds-vector-backgrounds.jpg" />
     <Content Include="Content\Images\fb1.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -186,6 +188,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\mijnsocialplan %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\mijnsocialplan.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -226,7 +229,7 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Handleiding.cshtml" />
+    <Content Include="Views\Handleiding\Index.cshtml" />
     <Content Include="Views\SocialPlan\Create.cshtml" />
     <Content Include="Views\TestSocialPlan\Create.cshtml" />
     <Content Include="Views\TestSocialPlan\Delete.cshtml" />
@@ -234,6 +237,7 @@
     <Content Include="Views\TestSocialPlan\Edit.cshtml" />
     <Content Include="Views\TestSocialPlan\Index.cshtml" />
     <Content Include="Views\SocialPlan\SocialPlannenMenu.cshtml" />
+    <Content Include="Views\Handleiding\PaginaX.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

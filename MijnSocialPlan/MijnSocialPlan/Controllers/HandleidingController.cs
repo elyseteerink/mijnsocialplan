@@ -6,18 +6,18 @@ using System.Web.Mvc;
 
 namespace MijnSocialPlan.Controllers
 {
-    public class HomeController : Controller
+    public class HandleidingController : Controller
     {
+        //
+        // GET: /Handleiding/
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult PaginaX()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
-    }
+	}
 }
