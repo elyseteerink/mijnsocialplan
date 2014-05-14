@@ -99,8 +99,6 @@ function removePadNaarBinnen(caller) {
 function plusContent(caller) {
     var count = $(caller).parent().find('input').length;
 
-    alert("aantal content inputs = " + count);
-
     var kanaalID = $(caller).parents('.kanaalContentPanel').first().attr('id').split("-").pop();
 
     var newInput = '<div class="input-group" id="inputContentRow-' + kanaalID + '-' + (count + 1) + '" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputContent-' + kanaalID + '-' + (count + 1) + '" placeholder="content..." onblur="contentItemIngevuld(this);"><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
