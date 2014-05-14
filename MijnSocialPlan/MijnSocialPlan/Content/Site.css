@@ -9,6 +9,14 @@
     padding-right: 15px;
 }
 
+.navbar-brand {
+    padding-left: 20px;
+}
+
+.jumbotron {
+    background: 100% url('Images/clouds-vector-backgrounds.jpg');
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
