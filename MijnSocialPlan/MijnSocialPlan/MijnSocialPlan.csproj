@@ -238,6 +238,17 @@
     <Content Include="Views\TestSocialPlan\Index.cshtml" />
     <Content Include="Views\SocialPlan\SocialPlannenMenu.cshtml" />
     <Content Include="Views\Handleiding\PaginaX.cshtml" />
+    <Content Include="Views\Handleiding\FacebookZakelijkAccount.cshtml" />
+    <Content Include="Views\Handleiding\FacebookPriveAccount.cshtml" />
+    <Content Include="Views\Handleiding\TwitterZakelijkAccount.cshtml" />
+    <Content Include="Views\Handleiding\InfoSocialMedia.cshtml" />
+    <Content Include="Views\Handleiding\HoeWerktFacebook.cshtml" />
+    <Content Include="Views\Handleiding\HoeWerktTwitter.cshtml" />
+    <Content Include="Views\Handleiding\HulpMetSchrijven.cshtml" />
+    <Content Include="Views\Handleiding\TipsEnTricks.cshtml" />
+    <Content Include="Views\Handleiding\PostenOpFacebook.cshtml" />
+    <Content Include="Views\Handleiding\TweetenOpTwitter.cshtml" />
+    <Content Include="Views\Handleiding\SocialContentStrategie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-size: 18px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -98,4 +99,13 @@ input[type="text"] {
 #removeContentItemSure {
     display: none;
     margin-top: 100px;
+}
+
+.home-sterretje {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.thumbnail {
+    margin: 20px 0;
 }
