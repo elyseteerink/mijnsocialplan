@@ -13,12 +13,16 @@
     padding-right: 15px;
 }
 
+h2, h3, h4 {
+    margin-top: 25px;
+}
+
 .navbar-brand {
     padding-left: 20px;
 }
 
 .jumbotron {
-    background: 100% url('Images/clouds-vector-backgrounds.jpg');
+    background: 100% url('Images/shutterstock_116229424.jpg');
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -111,4 +115,8 @@ input[type="text"] {
 
 .thumbnail {
     margin: 20px 0;
+}
+
+.pager {
+    margin-top: 40px;
 }

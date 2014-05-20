@@ -35,7 +35,23 @@
                             </li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Handleiding", "Index", "Handleiding")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Handleiding<span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="download">
+                            <li>@Html.ActionLink("Handleiding Index", "Index", "Handleiding")</li>
+                            <li>@Html.ActionLink("Facebook zakelijk account aanmaken", "FacebookZakelijkAccount", "Handleiding")</li>
+                            <li>@Html.ActionLink("Twitter zakelijk account aanmaken", "TwitterZakelijkAccount", "Handleiding")</li>
+                            <li>@Html.ActionLink("Kort maar krachtig: wat kan je met Social Media?", "InfoSocialMedia", "Handleiding")</li>
+                            <li>@Html.ActionLink("Hoe werkt Facebook?", "HoeWerktFacebook", "Handleiding")</li>
+                            <li>@Html.ActionLink("Hoe werkt Twitter?", "HoeWerktTwitter", "Handleiding")</li>
+                            <li>@Html.ActionLink("Help! Ik ben niet zo goed in schrijven", "HulpMetSchrijven", "Handleiding")</li>
+                            <li>@Html.ActionLink("Posts, tweets… Tips & Tricks!", "TipsEnTricks", "Handleiding")</li>
+                            <li>@Html.ActionLink("Posten op Facebook", "PostenOpFacebook", "Handleiding")</li>
+                            <li>@Html.ActionLink("Tweeten op Twitter", "TweetenOpTwitter", "Handleiding")</li>
+                            <li>@Html.ActionLink("Social contentstrategie", "SocialContentStrategie", "Handleiding")</li>
+                        </ul>
+                    </li>
+                    
                     <li>@Html.ActionLink("Info", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -44,8 +60,9 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
+        
+        <footer class="col-lg-12">
+            <hr />
             <p>&copy; @DateTime.Now.Year - Prototype - Elyse Teerink</p>
         </footer>
     </div>
