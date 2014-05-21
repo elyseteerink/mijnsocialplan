@@ -119,10 +119,10 @@ namespace MijnSocialPlan.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                message == ManageMessageId.ChangePasswordSuccess ? "Uw nieuwe wachtwoord is opgeslagen."
+                : message == ManageMessageId.SetPasswordSuccess ? "Uw wachtwoord is opgeslagen."
+                : message == ManageMessageId.RemoveLoginSuccess ? "De externe login is verwijderd."
+                : message == ManageMessageId.Error ? "Er is een fout opgetreden."
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");

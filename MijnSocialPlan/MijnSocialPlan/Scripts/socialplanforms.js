@@ -1,99 +1,99 @@
 ﻿$('.plusContactpersoon').click(function () {
-    $('#contactpersoonRow').clone().insertAfter(".contactpersoonRow:last");
+    $('#contactpersoonRow').clone().css('display', 'none').insertAfter(".contactpersoonRow:last").slideDown();
 
     $(".contactpersoonRow:last div input").val('');
     $(".contactpersoonRow:last").children('button.infoknop').remove();
 
-    $('.contactpersoonRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.contactpersoonRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 $('.plusUrl').click(function () {
-    $('#urlRow').clone().insertAfter(".urlRow:last");
+    $('#urlRow').clone().css('display', 'none').insertAfter(".urlRow:last").slideDown();
 
     $(".urlRow:last div input").val('');
     $(".urlRow:last").children('button.infoknop').remove();
 
-    $('.urlRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.urlRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 $('.plusSuccesfactor').click(function () {
-    $('#succesfactorRow').clone().insertAfter(".succesfactorRow:last");
+    $('#succesfactorRow').clone().css('display', 'none').insertAfter(".succesfactorRow:last").slideDown();
 
     $(".succesfactorRow:last div input").val('');
     $(".succesfactorRow:last").children('button.infoknop').remove();
 
-    $('.succesfactorRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.succesfactorRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 $('.plusKans').click(function () {
-    $('#kansRow').clone().insertAfter(".kansRow:last");
+    $('#kansRow').clone().css('display', 'none').insertAfter(".kansRow:last").slideDown();
 
     $(".kansRow:last div input").val('');
     $(".kansRow:last").children('button.infoknop').remove();
 
-    $('.kansRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.kansRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 $('.plusGevaar').click(function () {
-    $('#gevaarRow').clone().insertAfter(".gevaarRow:last");
+    $('#gevaarRow').clone().css('display', 'none').insertAfter(".gevaarRow:last").slideDown();
 
     $(".gevaarRow:last div input").val('');
     $(".gevaarRow:last").children('button.infoknop').remove();
 
-    $('.gevaarRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.gevaarRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 $('.plusHashtag').click(function () {
-    $('#hashtagRow').clone().insertAfter(".hashtagRow:last");
+    $('#hashtagRow').clone().css('display', 'none').insertAfter(".hashtagRow:last").slideDown();
 
     $(".hashtagRow:last div input").val('');
     $(".hashtagRow:last").children('button.infoknop').remove();
 
-    $('.hashtagRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.hashtagRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 $('.plusCommunity').click(function () {
-    $('#communityRow').clone().insertAfter(".communityRow:last");
+    $('#communityRow').clone().css('display', 'none').insertAfter(".communityRow:last").slideDown();
 
     $(".communityRow:last div input").val('');
     $(".communityRow:last").children('button.infoknop').remove();
 
-    $('.communityRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.communityRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 $('.plusOnsdoel').click(function () {
-    $('#onsdoelRow').clone().insertAfter(".onsdoelRow:last");
+    $('#onsdoelRow').clone().css('display', 'none').insertAfter(".onsdoelRow:last").slideDown();
 
     $(".onsdoelRow:last div input").val('');
     $(".onsdoelRow:last").children('button.infoknop').remove();
 
-    $('.onsdoelRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.onsdoelRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 $('.plusVolgersdoel').click(function () {
-    $('#volgersdoelRow').clone().insertAfter(".volgersdoelRow:last");
+    $('#volgersdoelRow').clone().css('display', 'none').insertAfter(".volgersdoelRow:last").slideDown();
 
     $(".volgersdoelRow:last div input").val('');
     $(".volgersdoelRow:last").children('button.infoknop').remove();
 
-    $('.volgersdoelRow:last').append('<button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
+    $('.volgersdoelRow:last').append('<button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button>');
 });
 
 function plusCallToAction (caller) {
 
-    var newInput = '<div id="calltoactionRow" class="calltoactionRow calltoactionRow-extra form-group"><label for="inputCalltoaction" class="col-lg-2">Call to action</label><div class="col-lg-3"><input type="text" class="form-control inline" id="inputCalltoaction" placeholder="action..."></div><button type="button" onClick="$(this).parent().remove();" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button></div>';
+    var newInput = '<div id="calltoactionRow" class="calltoactionRow calltoactionRow-extra form-group"><label for="inputCalltoaction" class="col-lg-2">Call to action</label><div class="col-lg-3"><input type="text" class="form-control inline" id="inputCalltoaction" placeholder="action..."></div><button type="button" onClick="$(this).parent().slideUp(500, function () {$(this).remove();});" class="btn btn-danger btn-md inline"><span class="glyphicon glyphicon-remove"></span></button></div>';
 
-    $(newInput).insertBefore($(caller).parent().parent());
+    $(newInput).css('display', 'none').insertBefore($(caller).parent().parent()).slideDown();
 }
 
 
 function plusPadNaarBinnen(caller) {
     var newInput = '<div class="input-group" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputPadnaarbinnen" placeholder="pad naar binnen..."><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="removePadNaarBinnen(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
-    $(newInput).insertBefore(caller);
+    $(newInput).css('display', 'none').insertBefore(caller).fadeIn();
 }
 
 function removePadNaarBinnen(caller) {
-    $(caller).parent().parent().remove();
+    $(caller).parent().parent().fadeOut(500, function () { $(caller).parent().parent().remove(); });
 }
 
 function plusContent(caller) {
@@ -102,7 +102,7 @@ function plusContent(caller) {
     var kanaalID = $(caller).parents('.kanaalContentPanel').first().attr('id').split("-").pop();
 
     var newInput = '<div class="input-group" id="inputContentRow-' + kanaalID + '-' + (count + 1) + '" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputContent-' + kanaalID + '-' + (count + 1) + '" placeholder="content..." onblur="contentItemIngevuld(this);"><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
-    $(newInput).insertBefore(caller);
+    $(newInput).css('display', 'none').insertBefore(caller).fadeIn();
 
     var contentBlock = '<div id="contentUitwerking-' + kanaalID + '-' + (count + 1) + '" class="contentUitwerking col-lg-12" style="display: none;">'+
                                 '<h4 class="contentTitel">Content titel</h4>'+
@@ -110,13 +110,14 @@ function plusContent(caller) {
                                     '<label for="selectSoortpost" class="col-lg-2">Soort post</label>'+
                                     '<div class="col-lg-4">' +
                                         '<select class="form-control" id="selectSoortpost">'+
-                                            '<option>Humor</option>'+
-                                            '<option>Informatief</option>'+
-                                            '<option>Winactie</option>'+
+                                            '<option>Iets Grappigs</option>' +
+                                            '<option>Iets Groots</option>'+
+                                            '<option>Iets met de Groep</option>'+
+                                            '<option>Iets Gratis</option>'+
                                         '</select>'+
                                     '</div>'+
                                     '&nbsp;'+
-                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>'+
+                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Kies hier het soort post dat je wekelijks wil gaan maken. Deze soort post ga je elke week op een vast moment herhalen met een nieuwe post. Meer over deze vier soorten posts, de vier G\'s, lees je op de pagina \'Posten op Facebook\' in de handleiding."><span class="glyphicon glyphicon-info-sign"></span></button>'+
                                 '</div>'+
                                 '<br />'+
                                 '<div class="form-group">'+
@@ -127,7 +128,7 @@ function plusContent(caller) {
                                         '<input type="checkbox" name="socialplan[kanalen][][contentitems][][onderdelen]" /> Tekst'+
                                     '</div>' +
                                     '&nbsp;'+
-                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>'+
+                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vink hier aan wat van toepassing is op deze soort post. Ga je deze alleen in de vorm van tekst doen of voeg je er een plaatje en of filmpje aan toe? Vink je hier tekst en foto aan? Dan is deze post elke week in de vorm van tekst met een bijbehorend plaatje."><span class="glyphicon glyphicon-info-sign"></span></button>' +
                                 '</div>' +
                                 '<br />'+
                                 '<div class="form-group">' +
@@ -138,7 +139,7 @@ function plusContent(caller) {
                                         '<input type="radio" name="radioShareablelikable" /> Share' +
                                     '</div>' +
                                     '&nbsp;'+
-                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>'+
+                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier kies je waar je op inzet. Ga je met deze soort post voornamelijk voor likes of wil je meer teweeg brengen en ga je voor shares? Let wel, voor shares moet de post meer lading dekken dan een post die voornamelijk likeable is."><span class="glyphicon glyphicon-info-sign"></span></button>' +
                                 '</div>' +
                                 '<br />' +
                                 '<div id="calltoactionRow" class="calltoactionRow form-group">'+
@@ -146,7 +147,7 @@ function plusContent(caller) {
                                     '<div class="col-lg-3">'+
                                         '<input type="text" class="form-control inline" id="inputCalltoaction" placeholder="action...">'+
                                     '</div>'+
-                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>'+
+                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Call to action, dit zijn de woorden die je steeds terug zal laten komen in de berichten. Bijvoorbeeld: Klik hier: of, Winnen? Kan hier: of, Tot zo!"><span class="glyphicon glyphicon-info-sign"></span></button>' +
                                 '</div>'+
                                 '<div class="form-group">'+
                                     '<div class="col-lg-2">'+
@@ -197,11 +198,11 @@ function removeContent(caller) {
 
 function plusPadNaarBuiten(caller) {
     var newInput = '<div class="input-group" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputPadnaarbuiten" placeholder="pad naar buiten..."><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="removePadNaarBuiten(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
-    $(newInput).insertBefore(caller);
+    $(newInput).css('display', 'none').insertBefore(caller).fadeIn();
 }
 
 function removePadNaarBuiten(caller) {
-    $(caller).parent().parent().remove();
+    $(caller).parent().parent().fadeOut(500, function () { $(caller).parent().parent().remove(); });
 }
 
 $('.infoknop').popover('hide');
