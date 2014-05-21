@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MijnSocialPlan.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class SocialPlanController : Controller
     {
         private MijnSocialPlanDbContext db = new MijnSocialPlanDbContext();
