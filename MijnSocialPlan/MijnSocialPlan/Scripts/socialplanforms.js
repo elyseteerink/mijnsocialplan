@@ -395,3 +395,7 @@ function deleteKanaalPanel(id)
         $(kanaalPanel).remove();
     });
 }
+
+$('.infoknop').blur(function (eventObject) {
+    $(this).trigger('click');
+});
