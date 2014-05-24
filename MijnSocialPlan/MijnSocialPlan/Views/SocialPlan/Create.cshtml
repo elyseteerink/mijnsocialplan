@@ -35,7 +35,7 @@
         <li class="active"><a href="#algemeen" data-toggle="tab">Algemeen</a></li>
         <li><a href="#analyse" data-toggle="tab">Analyse</a></li>
         <li><a href="#content" data-toggle="tab">Content</a></li>
-        <li><a href="#planning" data-toggle="tab">Planning</a></li>
+        <li><a href="#planning" onclick="preparePlanningTab();" data-toggle="tab">Planning</a></li>
     </ul>
     <div id="myTabContent" class="col-lg-12 tab-content">
         <div class="tab-pane fade active in" id="algemeen">
@@ -47,7 +47,7 @@
                     <input type="hidden" name="socialplan[socialplanid]" value="">
                     <input type="text" onblur="setTitel();" class="form-control" id="inputTitel" name="socialplan[titel]" placeholder="Naam project">
                 </div>
-                
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="TODO"><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <br />
             <div id="contactpersoonRow" class="contactpersoonRow form-group">
@@ -136,29 +136,9 @@
                 </div>
                 <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Hier zeg je kort wat jij de volgers van jouw pagina biedt. Bijvoorbeeld: Mis geen enkele actie van Bruidsmode op http://...."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
-            <br />
-            <div class="col-lg-2"></div>
-            <div class="col-lg-10">
-                <h4>Succesfactoren, kansen en gevaren</h4>
-            </div>
-            <br />
-            <div id="succesfactorRow" class="succesfactorRow form-group">
-                <label for="inputSuccesfactor" class="col-lg-2 control-label">Succesfactor</label>
-                <div class="col-lg-6">
-                    <input type="text" class="form-control inline" id="inputSuccesfactor" name="socialplan[succesfactoren][]" placeholder="">
-                </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Een kritische succesfactor bepaald het lot van bijvoorbeeld een actie. Stel je vraagt volgers om foto’s in te zenden met de belofte dat deze in het ‘happy customer’ album worden gepubliceerd. De leukste vijf winnen iets. Maar vervolgens stuurt niemand een foto in. Zonder die foto’s, geen winnaar = geen succes."><span class="glyphicon glyphicon-info-sign"></span></button>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-2">
-                </div>
-                <div class="col-lg-3">
-                    <button type="button" class="btn btn-primary btn-md plusSuccesfactor">
-                        <span class="glyphicon glyphicon-plus"></span> Succesfactor
-                    </button>
-                </div>
-            </div>
-            <br />
+            
+            
+            @*<br />
             <div id="kansRow" class="kansRow form-group">
                 <label for="inputKans" class="col-lg-2 control-label">Kans</label>
                 <div class="col-lg-6">
@@ -174,28 +154,12 @@
                         <span class="glyphicon glyphicon-plus"></span> Kans
                     </button>
                 </div>
-            </div>
-            <br />
-            <div id="gevaarRow" class="gevaarRow form-group">
-                <label for="inputGevaar" class="col-lg-2 control-label">Gevaar</label>
-                <div class="col-lg-6">
-                    <input type="text" class="form-control inline" id="inputGevaar" name="socialplan[gevaren][]" placeholder="">
-                </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Gevaren omschrijven wat de kansen in de weg kunnen zitten. Bijvoorbeeld: een gevaar is dat vrouwen niet willen dat bepaalde vrienden op Social Media weten wat hun mening is over een bepaald item. "><span class="glyphicon glyphicon-info-sign"></span></button>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-2">
-                </div>
-                <div class="col-lg-3">
-                    <button type="button" class="btn btn-primary btn-md plusGevaar">
-                        <span class="glyphicon glyphicon-plus"></span> Gevaar
-                    </button>
-                </div>
-            </div>
+            </div>*@
+            
             <br />
             <div class="col-lg-2"></div>
             <div class="col-lg-10">
-                <h4>Onze doelen.</h4>
+                <h4>Onze doelen</h4>
             </div>
             <div id="onsdoelRow" class="onsdoelRow form-group">
                 <label for="inputOnsdoel" class="col-lg-2 control-label">Doel</label>
@@ -216,7 +180,28 @@
             <br />
             <div class="col-lg-2"></div>
             <div class="col-lg-10">
-                <h4>Doelen van volgers.</h4>
+                <h4>Tussendoelen</h4>
+            </div>
+            <div id="succesfactorRow" class="succesfactorRow form-group">
+                <label for="inputSuccesfactor" class="col-lg-2 control-label">Tussendoel</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control inline" id="inputSuccesfactor" name="socialplan[succesfactoren][]" placeholder="">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Een kritische succesfactor bepaald het lot van bijvoorbeeld een actie. Stel je vraagt volgers om foto’s in te zenden met de belofte dat deze in het ‘happy customer’ album worden gepubliceerd. De leukste vijf winnen iets. Maar vervolgens stuurt niemand een foto in. Zonder die foto’s, geen winnaar = geen succes."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusSuccesfactor">
+                        <span class="glyphicon glyphicon-plus"></span> Tussendoel
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                <h4>Doelen van volgers</h4>
             </div>
             <br />
             <div id="volgersdoelRow" class="volgersdoelRow form-group">
@@ -232,6 +217,27 @@
                 <div class="col-lg-3">
                     <button type="button" class="btn btn-primary btn-md plusVolgersdoel">
                         <span class="glyphicon glyphicon-plus"></span> Doel
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                <h4>Gevaren</h4>
+            </div>
+            <div id="gevaarRow" class="gevaarRow form-group">
+                <label for="inputGevaar" class="col-lg-2 control-label">Gevaar</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control inline" id="inputGevaar" name="socialplan[gevaren][]" placeholder="">
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Gevaren omschrijven wat de kansen in de weg kunnen zitten. Bijvoorbeeld: een gevaar is dat vrouwen niet willen dat bepaalde vrienden op Social Media weten wat hun mening is over een bepaald item. "><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md plusGevaar">
+                        <span class="glyphicon glyphicon-plus"></span> Gevaar
                     </button>
                 </div>
             </div>
@@ -301,7 +307,14 @@
                         <div class="form-group">
                             <label for="inputKanaalTitel" class="col-lg-2 control-label">Social media kanaal</label>
                             <div class="col-lg-4">
-                                <input type="text" onblur="kanaalTitelIngevuld(this);" class="form-control" id="inputKanaalTitel" placeholder="bijv. Facebook of Twitter">
+                                <div class="input-group">
+                                    <input type="text" onblur="kanaalTitelIngevuld(this);" class="form-control" id="inputKanaalTitel-1" placeholder="bijv. Facebook of Twitter">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" onclick="kanaalTitelIngevuld($(this).parent().parent().find('#inputKanaalTitel'));">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
                             <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier maak je een nieuw plan aan voor een specifiek Social Media kanaal. Als je van plan bent om op meerdere kanalen hetzelfde te doen, dan kan je hier meerdere kanalen invullen. Bijvoorbeeld: 'Facebook en Twitter'. Ga je verschillende content op verschillende kanalen verspreiden, dan kan je hier beter voor ieder kanaal apart een plan aanmaken."><span class="glyphicon glyphicon-info-sign"></span></button>
                         </div>
@@ -321,9 +334,14 @@
                             <div class="forwardarrow col-lg-1">
                             </div>
                             <div id="contentbox" class="corespathsbox col-lg-3 inline">
-                                <input type="text" class="form-control inline" id="inputContent-1" name="socialplan[kanalen][][contentitems][][titel]" placeholder="content..." onblur="contentItemIngevuld(this);">
+                                @*<input type="text" class="form-control inline" id="inputContent-1" name="socialplan[kanalen][][contentitems][][titel]" placeholder="soort post..." onblur="contentItemIngevuld(this);">*@
+                                <select class="form-control" id="inputContent-1" onchange="contentItemIngevuld(this);" style="margin-bottom: 3px;">
+                                    <option>soort post...</option>
+                                    <option>type a</option>
+                                    <option>type b</option>
+                                </select>
                                 <button type="button" class="vol btn btn-primary btn-md" onclick="plusContent(this);">
-                                    <span class="glyphicon glyphicon-plus inline"></span> Content
+                                    <span class="glyphicon glyphicon-plus inline"></span> Post
                                 </button>
                             </div>
                             <div class="forwardarrow col-lg-1">
@@ -342,21 +360,8 @@
 
                             <br />
                             <div id="contentUitwerking-1-1" class="contentUitwerking col-lg-12" style="display: none;">
-                                <h4 class="contentTitel">Content titel</h4>
-                                <div class="form-group">
-                                    <label for="selectSoortpost" class="col-lg-2">Soort post</label>
-                                    <div class="col-lg-4">
-                                        <select class="form-control" id="selectSoortpost">
-                                            <option>Iets Grappigs</option>
-                                            <option>Iets Groots</option>
-                                            <option>Iets met de Groep</option>
-                                            <option>Iets Gratis</option>
-                                        </select>
-                                    </div>
-                                    &nbsp;
-                                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Kies hier het soort post dat je wekelijks wil gaan maken. Deze soort post ga je elke week op een vast moment herhalen met een nieuwe post. Meer over deze vier soorten posts, de vier G's, lees je op de pagina 'Posten op Facebook' in de handleiding."><span class="glyphicon glyphicon-info-sign"></span></button>
-                                </div>
-                                <br />
+                                <h4 class="contentTitel">soort post...</h4>
+                                
                                 <div class="form-group">
                                     <label for="checkboxOnderdelen" class="col-lg-2">Onderdelen</label>
                                     <div class="col-lg-1">
@@ -370,9 +375,10 @@
                                 <br />
                                 <div class="form-group">
                                     <label for="radioShareablelikable" class="col-lg-2">Likable/Shareble</label>
-                                    <div class="col-lg-1">
+                                    <div class="col-lg-2">
 
                                         <input type="radio" name="radioShareablelikable" /> Like <br />
+                                        <input type="radio" name="radioShareablelikable" /> Comment <br />
                                         <input type="radio" name="radioShareablelikable" /> Share
                                     </div>
                                     &nbsp;
@@ -415,7 +421,7 @@
             <div class="form-group">
 
                 <div class="col-lg-12">
-                    <a href="#" onclick="activeTab('planning');" data-toggle="tab" class="col-lg-3 btn btn-success btn-md">
+                    <a href="#" onclick="activeTab('planning'); preparePlanningTab();" data-toggle="tab" class="col-lg-3 btn btn-success btn-md">
                         <span class="glyphicon glyphicon-chevron-right"></span> Verder naar Planning
                     </a>
                 </div>
@@ -424,10 +430,69 @@
         <div class="tab-pane fade" id="planning">
             <h3>Planning</h3>
             <br />
-            <p>
-                <b>Comming soon!</b> Deze pagina wordt nog gemaakt.
-            </p>
+            <div class="form-group">
+                <label for="inputFrequentie" class="col-lg-2 control-label">Frequentie</label>
+                <div class="col-lg-1">
+                    <input type="text" class="form-control inline" id="inputFrequentie" value="" disabled>
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="TODO"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+            <div id="planningActieMomentRows">
+                <div class="planningActieMomentRow form-group">
+                    <label for="inputFrequentie" class="col-lg-2 control-label">Weekplanning</label>
+                    <div class="col-lg-2">
+                        <select class="form-control inline">
+                            <option>Dag</option>
+                            <option>Maandag</option>
+                            <option>Dinsdag</option>
+                            <option>Woensdag</option>
+                            <option>Donderdag</option>
+                            <option>Vrijdag</option>
+                            <option>Zaterdag</option>
+                            <option>Zondag</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="form-control inline">
+                            <option>Tijd</option>
+                            <option>07:00</option>
+                            <option>08:00</option>
+                            <option>09:00</option>
+                            <option>10:00</option>
+                            <option>11:00</option>
+                            <option>12:00</option>
+                            <option>13:00</option>
+                            <option>14:00</option>
+                            <option>15:00</option>
+                            <option>16:00</option>
+                            <option>17:00</option>
+                            <option>18:00</option>
+                            <option>19:00</option>
+                            <option>20:00</option>
+                            <option>21:00</option>
+                            <option>22:00</option>
+                            <option>23:00</option>
+                            <option>00:00</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <select class="planningContentSelect form-control inline"></select>
+                    </div>
+                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="TODO"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary btn-md" onclick="plusPlanningActieMoment();">
+                        <span class="glyphicon glyphicon-plus"></span> Actiemoment
+                    </button>
+                </div>
+            </div>
         </div>
+        
 
     </div><!--tab-->
 

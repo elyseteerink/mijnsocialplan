@@ -97,29 +97,23 @@ function removePadNaarBinnen(caller) {
 }
 
 function plusContent(caller) {
-    var count = $(caller).parent().find('input').length;
+    var count = $(caller).parent().find('select').length;
 
     var kanaalID = $(caller).parents('.kanaalContentPanel').first().attr('id').split("-").pop();
 
-    var newInput = '<div class="input-group" id="inputContentRow-' + kanaalID + '-' + (count + 1) + '" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputContent-' + kanaalID + '-' + (count + 1) + '" placeholder="content..." onblur="contentItemIngevuld(this);"><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
+    //var newInput = '<div class="input-group" id="inputContentRow-' + kanaalID + '-' + (count + 1) + '" style="margin-bottom: 3px;"><input type="text" class="form-control inline" id="inputContent-' + kanaalID + '-' + (count + 1) + '" placeholder="content..." onblur="contentItemIngevuld(this);"><span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
+    var newInput = '<div class="input-group" id="inputContentRow-' + kanaalID + '-' + (count + 1) + '" style="margin-bottom: 3px;">'+
+        '<select class="form-control" id="inputContent-' + kanaalID + '-' + (count + 1) + '" onchange="contentItemIngevuld(this);">' +
+                                    '<option>soort post...</option>' +
+                                    '<option>type a</option>' +
+                                    '<option>type b</option>' +
+                                '</select>'+
+    '<span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
+
     $(newInput).css('display', 'none').insertBefore(caller).fadeIn();
 
     var contentBlock = '<div id="contentUitwerking-' + kanaalID + '-' + (count + 1) + '" class="contentUitwerking col-lg-12" style="display: none;">'+
-                                '<h4 class="contentTitel">Content titel</h4>'+
-                                '<div class="form-group">'+
-                                    '<label for="selectSoortpost" class="col-lg-2">Soort post</label>'+
-                                    '<div class="col-lg-4">' +
-                                        '<select class="form-control" id="selectSoortpost">'+
-                                            '<option>Iets Grappigs</option>' +
-                                            '<option>Iets Groots</option>'+
-                                            '<option>Iets met de Groep</option>'+
-                                            '<option>Iets Gratis</option>'+
-                                        '</select>'+
-                                    '</div>'+
-                                    '&nbsp;'+
-                                    '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Kies hier het soort post dat je wekelijks wil gaan maken. Deze soort post ga je elke week op een vast moment herhalen met een nieuwe post. Meer over deze vier soorten posts, de vier G\'s, lees je op de pagina \'Posten op Facebook\' in de handleiding."><span class="glyphicon glyphicon-info-sign"></span></button>'+
-                                '</div>'+
-                                '<br />'+
+                                '<h4 class="contentTitel">soort post...</h4>'+
                                 '<div class="form-group">'+
                                     '<label for="checkboxOnderdelen" class="col-lg-2">Onderdelen</label>'+
                                     '<div class="col-lg-1">'+
@@ -133,9 +127,10 @@ function plusContent(caller) {
                                 '<br />'+
                                 '<div class="form-group">' +
                                     '<label for="radioShareablelikable" class="col-lg-2">Likable/Shareble</label>' +
-                                    '<div class="col-lg-1">' +
+                                    '<div class="col-lg-2">' +
 
                                         '<input type="radio" name="radioShareablelikable" /> Like <br />' +
+                                        '<input type="radio" name="radioShareablelikable" /> Comment <br />' +
                                         '<input type="radio" name="radioShareablelikable" /> Share' +
                                     '</div>' +
                                     '&nbsp;'+
@@ -209,7 +204,10 @@ $('.infoknop').popover('hide');
 
 
 function activeTab(tab) {
-    $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+    
+    $('html, body').animate({ scrollTop: 0 }, 'slow', '', function () {
+        $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+    });
 }
 
 function setTitel() {
@@ -218,12 +216,14 @@ function setTitel() {
 
 function kanaalTitelIngevuld(caller) {
 
+
+
     if ($(caller).val() !== "") {
-        $(caller).parent().parent().parent().parent().find('h3.panel-title').first().text($(caller).val());
-        $(caller).parent().parent().parent().find('.kanaalContentContainer').first().slideDown();
+        $(caller).parent().parent().parent().parent().parent().find('h3.panel-title').first().text($(caller).val());
+        $(caller).parent().parent().parent().parent().find('.kanaalContentContainer').first().slideDown();
     } else if ($(caller).val() === "") {
-        $(caller).parent().parent().parent().parent().find('h3.panel-title').first().text("Nieuw kanaal");
-        $(caller).parent().parent().parent().find('.kanaalContentContainer').first().slideUp();
+        $(caller).parent().parent().parent().parent().parent().find('h3.panel-title').first().text("Nieuw kanaal");
+        $(caller).parent().parent().parent().parent().find('.kanaalContentContainer').first().slideUp();
     }
 }
 
@@ -233,10 +233,19 @@ function contentItemIngevuld(input)
 
     var kanaalID = $(input).parents('.kanaalContentPanel').first().attr('id').split("-").pop();
 
-    if ($(input).val() !== "") {
+
+    if ($(input).val() != "soort post...") {
+
+        if ($(input).val() !== "") {
+            $('#contentUitwerking-' + kanaalID + '-' + contentBlockId + ' h4.contentTitel').text($(input).val());
+            $('#contentUitwerking-' + kanaalID + '-' + contentBlockId).slideDown();
+        } else if ($(input).val() === "") {
+            $('#contentUitwerking-' + kanaalID + '-' + contentBlockId + ' h4.contentTitel').text($(input).val());
+            $('#contentUitwerking-' + kanaalID + '-' + contentBlockId).slideUp();
+        }
+    }
+    else {
         $('#contentUitwerking-' + kanaalID + '-' + contentBlockId + ' h4.contentTitel').text($(input).val());
-        $('#contentUitwerking-' + kanaalID + '-' + contentBlockId).slideDown();
-    } else if ($(input).val() === "") {
         $('#contentUitwerking-' + kanaalID + '-' + contentBlockId).slideUp();
     }
 }
@@ -285,7 +294,14 @@ $('button#plusKanaal').click(function () {
                         '<div class="form-group">' +
                             '<label for="inputKanaalTitel" class="col-lg-2 control-label">Social media kanaal</label>' +
                             '<div class="col-lg-4">' +
-                                '<input type="text" onblur="kanaalTitelIngevuld(this);" class="form-control" id="inputKanaalTitel" placeholder="bijv. Facebook of Twitter">' +
+                                '<div class="input-group">' +
+                                    '<input type="text" onblur="kanaalTitelIngevuld(this);" class="form-control" id="inputKanaalTitel-' + nieuwKanaalIDNr + '" placeholder="bijv. Facebook of Twitter">' +
+                                    '<span class="input-group-btn">' +
+                                        '<button class="btn btn-default" type="button" onclick="kanaalTitelIngevuld($(this).parent().parent().find(\'#inputKanaalTitel\'));">' +
+                                            '<span class="glyphicon glyphicon-ok"></span>' +
+                                        '</button>' +
+                                    '</span>' +
+                                '</div>' +
                             '</div>' +
                             '<button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-info-sign"></span></button>' +
                         '</div>' +
@@ -305,7 +321,11 @@ $('button#plusKanaal').click(function () {
                             '<div class="forwardarrow col-lg-1">' +
                             '</div>' +
                             '<div id="contentbox" class="corespathsbox col-lg-3 inline">' +
-                                '<input type="text" class="form-control inline" id="inputContent-1" name="socialplan[kanalen][][contentitems][][titel]" placeholder="content..." onblur="contentItemIngevuld(this);">' +
+                                '<select class="form-control" id="inputContent-1" onchange="contentItemIngevuld(this);" style="margin-bottom: 3px;">' +
+                                    '<option>soort post...</option>' +
+                                    '<option>type a</option>' +
+                                    '<option>type b</option>' +
+                                '</select>' +
                                 '<button type="button" class="vol btn btn-primary btn-md" onclick="plusContent(this);">' +
                                     '<span class="glyphicon glyphicon-plus inline"></span> Content' +
                                 '</button>' +
@@ -326,7 +346,7 @@ $('button#plusKanaal').click(function () {
 
     '<br />' +
    ' <div id="contentUitwerking-' + nieuwKanaalIDNr + '-1" class="contentUitwerking col-lg-12" style="display: none;">' +
-       ' <h4 class="contentTitel">Content titel</h4>' +
+       ' <h4 class="contentTitel">soort post...</h4>' +
       '  <div class="form-group">' +
        '     <label for="selectSoortpost" class="col-lg-2">Soort post</label>' +
         '    <div class="col-lg-4">' +
@@ -353,9 +373,10 @@ $('button#plusKanaal').click(function () {
 '<br />' +
 '<div class="form-group">' +
 '    <label for="radioShareablelikable" class="col-lg-2">Likable/Shareble</label>' +
-'    <div class="col-lg-1">' +
+'    <div class="col-lg-2">' +
 
 '        <input type="radio" name="radioShareablelikable" /> Like <br />' +
+'        <input type="radio" name="radioShareablelikable" /> Comment <br />' +
  '       <input type="radio" name="radioShareablelikable" /> Share' +
  '   </div>' +
  '   &nbsp;' +
@@ -383,6 +404,12 @@ $('button#plusKanaal').click(function () {
 '</div>' + 
     '</div>');
 
+    $('#inputKanaalTitel-' + nieuwKanaalIDNr + '').keyup(function (e) {
+        if (e.keyCode == 13) {
+            kanaalTitelIngevuld($('#inputKanaalTitel-' + nieuwKanaalIDNr + ''));
+        }
+    });
+
     $('#kanaalContentPanel-' + nieuwKanaalIDNr).slideDown();
 
 });
@@ -397,5 +424,112 @@ function deleteKanaalPanel(id)
 }
 
 $('.infoknop').blur(function (eventObject) {
-    $(this).trigger('click');
+
+    if($('div.popover').length > 0)
+        $(this).trigger('click');
+});
+
+function preparePlanningTab()
+{
+    setPlanningFrequentie();
+
+    $('.planningContentSelect').each(function (index, element) {
+        $(element).html(getContentItemsAsOptions());
+    });
+}
+
+
+function setPlanningFrequentie() {
+    var contentItems = $('h4.contentTitel');
+
+    var itemsCount = 0;
+
+    $(contentItems).each(function (index, element) {
+        var contentItem = $(element).html();
+        if (contentItem != "soort post...")
+            itemsCount++;
+    });
+    
+    $('#inputFrequentie').val(itemsCount);
+}
+
+function getContentItemsAsOptions()
+{
+    var contentItems = $('h4.contentTitel');
+
+    var optionsHtml = '<option>Kies post</option>';
+
+    $(contentItems).each(function (index, element) {
+        var contentItem = $(element).html();
+        if (contentItem != "soort post...")
+            optionsHtml += '<option>' + contentItem + '</option>';
+    });
+
+    return optionsHtml;
+}
+
+function plusPlanningActieMoment()
+{
+    var id = 'planningActieMomentRow-' + $('.planningActieMomentRow').length.toString();
+
+    var newRowHtml = '<div id="' + id + '" class="planningActieMomentRow form-group" style="display: none;">' +
+                '<label for="inputFrequentie" class="col-lg-2 control-label"></label>' +
+                '<div class="col-lg-2">' +
+                    '<select class="form-control inline">' +
+                        '<option>Dag</option>' +
+                        '<option>Maandag</option>' +
+                        '<option>Dinsdag</option>' +
+                        '<option>Woensdag</option>' +
+                        '<option>Donderdag</option>' +
+                        '<option>Vrijdag</option>' +
+                        '<option>Zaterdag</option>' +
+                        '<option>Zondag</option>' +
+                    '</select>' +
+                '</div>' +
+                '<div class="col-lg-2">' +
+                    '<select class="form-control inline">' +
+                        '<option>Tijd</option>' +
+                        '<option>07:00</option>' +
+                        '<option>08:00</option>' +
+                        '<option>09:00</option>' +
+                        '<option>10:00</option>' +
+                        '<option>11:00</option>' +
+                        '<option>12:00</option>' +
+                        '<option>13:00</option>' +
+                        '<option>14:00</option>' +
+                        '<option>15:00</option>' +
+                        '<option>16:00</option>' +
+                        '<option>17:00</option>' +
+                        '<option>18:00</option>' +
+                        '<option>19:00</option>' +
+                        '<option>20:00</option>' +
+                        '<option>21:00</option>' +
+                        '<option>22:00</option>' +
+                        '<option>23:00</option>' +
+                        '<option>00:00</option>' +
+                    '</select>' +
+                '</div>' +
+                '<div class="col-lg-4">' +
+                    '<select class="planningContentSelect form-control inline">' +
+                        getContentItemsAsOptions() +
+                    '</select>'+
+                '</div>'+
+                '<button class="btn btn-danger" type="button" onclick="removePlanningActieMoment(this);"><span class="glyphicon glyphicon-remove"></span></button>'+
+            '</div>';
+
+    $('#planningActieMomentRows').append(newRowHtml);
+    $('#'+id).slideDown();
+}
+
+function removePlanningActieMoment(caller)
+{
+    $(caller).parent().slideUp(500, function () {
+        $(caller).parent().remove();
+    });
+}
+
+$('#inputKanaalTitel-1').keyup(function (e) {
+    if (e.keyCode == 13) {
+        kanaalTitelIngevuld($('#inputKanaalTitel-1'));
+    }
 });
