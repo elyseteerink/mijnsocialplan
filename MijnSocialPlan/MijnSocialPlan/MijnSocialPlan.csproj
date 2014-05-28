@@ -184,11 +184,13 @@
     <Content Include="Content\Images\bylj_facebook.png" />
     <Content Include="Content\Images\clouds-vector-backgrounds.jpg" />
     <Content Include="Content\Images\donsje_facebook.png" />
+    <Content Include="Content\Images\elyse.jpg" />
     <Content Include="Content\Images\fb1.png" />
     <Content Include="Content\Images\infographic_facebook.png" />
     <Content Include="Content\Images\infographic_tweet.png" />
     <Content Include="Content\Images\info_bedrijf.png" />
     <Content Include="Content\Images\jorg_facebook.png" />
+    <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\museumwinkel_facebook.png" />
     <Content Include="Content\Images\mwah_facebook.png" />
     <Content Include="Content\Images\omslag_toevoegen.png" />
@@ -289,7 +291,6 @@
     <Content Include="Views\TestSocialPlan\Edit.cshtml" />
     <Content Include="Views\TestSocialPlan\Index.cshtml" />
     <Content Include="Views\SocialPlan\SocialPlannenMenu.cshtml" />
-    <Content Include="Views\Handleiding\PaginaX.cshtml" />
     <Content Include="Views\Handleiding\FacebookZakelijkAccount.cshtml" />
     <Content Include="Views\Handleiding\FacebookPriveAccount.cshtml" />
     <Content Include="Views\Handleiding\TwitterZakelijkAccount.cshtml" />

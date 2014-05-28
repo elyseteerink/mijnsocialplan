@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Nieuw Social Plan maken";
 }
-<h2 id="plantitel">@ViewBag.Title.</h2>
+<h2 id="plantitel">@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
 <script>
@@ -45,9 +45,9 @@
                 <label for="inputTitel" class="col-lg-2 control-label">Titel</label>
                 <div class="col-lg-3">
                     <input type="hidden" name="socialplan[socialplanid]" value="">
-                    <input type="text" onblur="setTitel();" class="form-control" id="inputTitel" name="socialplan[titel]" placeholder="Naam project">
+                    <input type="text" onblur="setTitel();" class="form-control" id="inputTitel" name="socialplan[titel]" placeholder="Bedrijfs- of projectnaam">
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="TODO"><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Als je één algemeen Social plan voor jouw bedrijf aan gaat maken, vul dan hier de bedrijfsnaam in. Ben je van plan om meerdere Social plannen binnen jouw bedrijf uit te gaan voeren, kies dan een projectnaam voor dit plan."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <br />
             <div id="contactpersoonRow" class="contactpersoonRow form-group">
@@ -77,7 +77,7 @@
                         Afspraken over Social Media gebruik door alle betrokken partijen.
                     </span>
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Omschrijf hier alle afspraken die gemaakt zijn met betrokken partijen met betrekking tot Social Media gebruik. Denk hierbij aan wat er wel of niet gedeeld mag worden. Of bij een actie bijvoorbeeld dat familieleden van betrokken partijen niet mogen deelnemen."><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Omschrijf hier alle afspraken die je maakt over Social Media gebruik met betrokken personen. Denk bijvoorbeeld aan personeelsleden die niet zomaar foto’s van de werkvloer mogen posten op Social Media. Of bedrijfsgegevens die niet gedeeld mogen worden op Social Media. Maar als het een actie betreft kan je hier ook typen dat personeelsleden (en familieleden) uitgesloten zijn voor deelname aan de actie."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <br />
             <div id="urlRow" class="urlRow form-group">
@@ -85,7 +85,7 @@
                 <div class="col-lg-6">
                     <input type="text" class="form-control inline" id="inputUrl" name="socialplan[urls][]" placeholder="http://www....">
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Voeg hier alle betrokken URL's toe. Denk aan de website en de Social Media kanalen."><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier vul je alle linkjes van betrokken websites in. Denk bijvoorbeeld aan de link van de Facebook pagina van jouw bedrijf, het is de link die in de browser staat, bijvoorbeeld: http://facebook.com/mijnsocialplan/ of de link van jouw website http://www.mijnsocialplan.nl/"><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <div class="form-group">
                 <div class="col-lg-2">
@@ -126,7 +126,7 @@
                 <div class="col-lg-9">
                     <textarea class="form-control" rows="6" id="inputToonStijl" name="socialplan[toonstijl]" placeholder=""></textarea>
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="De tone of voice is de vorm waarin je de lezer aanspreekt. Het gaat hier vooral om een woordkeus, zinsopbouw en aanspreekvorm die aansluit op de doelgroep."><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="De tone of voice is de vorm waarin je de volgers van jouw pagina aanspreekt. Het gaat hier vooral om de woordkeus, zinsopbouw en aanspreekvorm die aansluit op de doelgroep. Bijvoorbeeld, wij spreken onze doelgroep informeel aan met je in plaats van u."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <br />
             <div class="form-group">
@@ -134,7 +134,7 @@
                 <div class="col-lg-9">
                     <textarea class="form-control" rows="3" id="inputPropositie" name="socialplan[propositie]" placeholder=""></textarea>
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Hier zeg je kort wat jij de volgers van jouw pagina biedt. Bijvoorbeeld: Mis geen enkele actie van Bruidsmode op http://...."><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Hier zeg je wat jij precies gaat doen met jouw Facebook pagina, dit is wat jij jouw volgers gaat bieden. Bijvoorbeeld dat jij mensen informatie biedt over jouw bedrijf. Of dat jij jouw volgers op de hoogte houdt van nieuws binnen het vakgebied van jouw bedrijf. Bijvoorbeeld: ik geef mijn volgers meer informatie over aanbiedingen van mijn winkel."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             
             
@@ -166,7 +166,7 @@
                 <div class="col-lg-6">
                     <input type="text" class="form-control inline" id="inputOnsdoel" name="socialplan[doelenons][]" placeholder="">
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="De doelstelling beschrijft wat een bedrijf wil bereiken. Bezoek, merkbekendheid, feedback? Dit heeft namelijk invloed op de onderwerpen, de planning en de vorm van content. Wat zijn de tussendoelen? Denk aan het behalen van 100 likes in vier weken. Door deze targets te stellen, kan je meten of de huidige strategie effectief is."><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Deze doelen omschrijven wat jouw bedrijf wil bereiken met Social Media. Waarom zet jij Social Media in? Bijvoorbeeld meer merkbekendheid, meer omzet, meer bezoekers van de websiteof mensen bereiken met informatie."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <div class="form-group">
                 <div class="col-lg-2">
@@ -187,7 +187,7 @@
                 <div class="col-lg-6">
                     <input type="text" class="form-control inline" id="inputSuccesfactor" name="socialplan[succesfactoren][]" placeholder="">
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Een kritische succesfactor bepaald het lot van bijvoorbeeld een actie. Stel je vraagt volgers om foto’s in te zenden met de belofte dat deze in het ‘happy customer’ album worden gepubliceerd. De leukste vijf winnen iets. Maar vervolgens stuurt niemand een foto in. Zonder die foto’s, geen winnaar = geen succes."><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier geef je aan wat kleine directe doelen van de Social Media kanalen zijn die je gaat inzetten. Denk aan: Binnen zes weken willen wij minimaal 50 likes op de Facebook pagina. Of: Over vier weken willen wij twee retweets per tweet op Twitter."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <div class="form-group">
                 <div class="col-lg-2">
@@ -209,7 +209,7 @@
                 <div class="col-lg-6">
                     <input type="text" class="form-control inline" id="inputVolgersdoel" name="socialplan[doelenvolgers][]" placeholder="">
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier formuleer je de doelen die potentiële volgers willen bereiken op jouw pagina. Deze doelen zijn vaak hetzelfe als de kansen die jouw zakelijke Social Media pagina jou biedt. Een doel van een volger kan bijvoorbeeld zijn: Mijn mening geven over trouwjurken. De bijbehorende kans voor de Social Media pagina is dan: Een kans is dat wij een plek bieden waar vrouwen graag hun mening delen over trouwjurken."><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier zeg je dat volgers op jouw pagina willen bereiken. Willen zij hun mening delen? Of willen zij informatie vinden over jouw bedrijf? Willen zij op de hoogte worden gehouden van ontwikkelingen binnen het vakgebied van jouw bedrijf?"><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <div class="form-group">
                 <div class="col-lg-2">
@@ -230,7 +230,7 @@
                 <div class="col-lg-6">
                     <input type="text" class="form-control inline" id="inputGevaar" name="socialplan[gevaren][]" placeholder="">
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Gevaren omschrijven wat de kansen in de weg kunnen zitten. Bijvoorbeeld: een gevaar is dat vrouwen niet willen dat bepaalde vrienden op Social Media weten wat hun mening is over een bepaald item. "><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier omschrijf je wat jouw succes op Social Media dwars kan zitten. Bijvoorbeeld: Mijn volgers zijn niet geïnteresseerd in nieuws uit het vakgebied van mijn bedrijf. Of: er zijn niet genoeg volgers buiten mijn klantenkring om deel te nemen aan de actie, waardoor een actie geen nieuwe klanten oplevert."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <div class="form-group">
                 <div class="col-lg-2">
@@ -337,8 +337,12 @@
                                 @*<input type="text" class="form-control inline" id="inputContent-1" name="socialplan[kanalen][][contentitems][][titel]" placeholder="soort post..." onblur="contentItemIngevuld(this);">*@
                                 <select class="form-control" id="inputContent-1" onchange="contentItemIngevuld(this);" style="margin-bottom: 3px;">
                                     <option>soort post...</option>
-                                    <option>type a</option>
-                                    <option>type b</option>
+                                    <option>Iets Grappigs</option>
+                                    <option>Iets Groots</option>
+                                    <option>Iets met de Groep</option>
+                                    <option>Iets Gratis</option>
+                                    <option>Nieuwsfeitje</option>
+                                    <option>Info / Nieuw product</option>
                                 </select>
                                 <button type="button" class="vol btn btn-primary btn-md" onclick="plusContent(this);">
                                     <span class="glyphicon glyphicon-plus inline"></span> Post
@@ -354,7 +358,7 @@
                                 </button>
                             </div>
                             &nbsp;
-                            <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Paden naar binnen, dit is waar de volgers vandaan komen. Bijvoorbeeld: via een Social button op de website, likes of retweets van vrienden of de zoekfunctie van het Social Media kanaal. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Content, dit zegt wat voor content het is dat je plaatst. Bijvoorbeeld: Plek voor feedback. Deze plek creëer je met bijvoorbeeld een post op Facebook waar mensen hun mening kunnen geven over een bepaalde trouwjurk. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Paden naar buiten, dit is waar de volgers vervolgens heen kunnen. Bijvoorbeeld: de website, een ander Social Media kanaal of het betreffende artikel waar de post over gaat."><span class="glyphicon glyphicon-info-sign"></span></button>
+                            <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Waar komen potentiële volgers van jouw bedrijf vandaan? Hoe komen zij op jouw Facebook of Twitter pagina? Schrijf wat er nu in je opkomt bij het invulveld ‘Paden naar binnen’. Bijvoorbeeld: Via de zoekfunctie op Facebook. Of: Via via of Facebook. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Het soort post zegt wat voor content het is dat je plaatst. Hier kan je er meerdere kiezen, elk soort post dat je hier kiest vormt de basis van de wekelijkse posts die je gaat plaatsen. Als je bijvoorbeeld voor ‘Vragen om feedback’ en ‘Nieuwsfeitje’ kiest, dan betekent het dat jij elke week twee verschillende posts gaat plaatsen met elk één van deze twee categorieën. Hieronder ga je deze posts nog meer specificeren. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Paden naar buiten, dit is waar de volgers vervolgens heen kunnen. Bijvoorbeeld: de website, een ander Social Media kanaal of het betreffende artikel waar de post over gaat."><span class="glyphicon glyphicon-info-sign"></span></button>
 
                             <div class="col-lg-12 block" style="clear: both; height: 50px;"></div>
 
@@ -382,7 +386,7 @@
                                         <input type="radio" name="radioShareablelikable" /> Share
                                     </div>
                                     &nbsp;
-                                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier kies je waar je op inzet. Ga je met deze soort post voornamelijk voor likes of wil je meer teweeg brengen en ga je voor shares? Let wel, voor shares moet de post meer lading dekken dan een post die voornamelijk likeable is."><span class="glyphicon glyphicon-info-sign"></span></button>
+                                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Hier kies je waar je op inzet. Ga je met deze post voornamelijk voor likes of wil je meer teweeg brengen en ga je voor comments of shares? Let wel, voor comments en shares moet de post meer lading dekken dan een post die voornamelijk likeable is."><span class="glyphicon glyphicon-info-sign"></span></button>
                                 </div>
                                 <br />
                                 <div id="calltoactionRow" class="calltoactionRow form-group">
@@ -435,7 +439,7 @@
                 <div class="col-lg-1">
                     <input type="text" class="form-control inline" id="inputFrequentie" value="" disabled>
                 </div>
-                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="TODO"><span class="glyphicon glyphicon-info-sign"></span></button>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="De frequentie is het aantal posts dat jij per week plaatst. Deze frequentie is op basis van de door jou gekozen ‘soort posts’ bij de tab ‘Content’."><span class="glyphicon glyphicon-info-sign"></span></button>
             </div>
             <div id="planningActieMomentRows">
                 <div class="planningActieMomentRow form-group">
@@ -478,7 +482,7 @@
                     <div class="col-lg-4">
                         <select class="planningContentSelect form-control inline"></select>
                     </div>
-                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="TODO"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="left" data-content="Hier bepaal je wanneer je welke post gaat plaatsen. Je kiest een dag en tijd en zegt welke post je dan gaat plaatsen. Kies het moment van posten goed op basis van jouw doelgroep, wanneer zijn zij het meest actief op Social Media? Is dat ’s morgens rond de koffie, op het werk tijdens de lunch of tussen vijf en zes als ze in de trein naar huis zitten? Mocht je er nou achter komen dat een bepaalde post toch niet zo goed werkt op die dag en dat tijdstip, probeer dan eens een ander moment op de dag of misschien zelfs een andere dag."><span class="glyphicon glyphicon-info-sign"></span></button>
                 </div>
             </div>
 
@@ -504,11 +508,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#removeContentItemSure').fadeOut();">×</button>
-                <h4 class="modal-title">Content item verwijderen</h4>
+                <h4 class="modal-title">Post verwijderen</h4>
             </div>
             <div class="modal-body">
-                <p>Weet je zeker dat je dit content item wil verijderen?</p>
-                <p>Daarmee verwijder je alle bijbehorende gekozen informatie (soort post, onderdelen, likeable/shareable en call to action).</p>
+                <p>Weet je zeker dat je deze post wil verwijderen?</p>
+                <p>Daarmee verwijder je alle bijbehorende gekozen informatie (onderdelen, likeable/shareable en call to action).</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" onclick="$('#removeContentItemSure').fadeOut();" data-dismiss="modal">Annuleren</button>

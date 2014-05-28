@@ -15,11 +15,6 @@ namespace MijnSocialPlan.Controllers
             return View();
         }
 
-        public ActionResult PaginaX()
-        {
-            return View();
-        }
-
         public ActionResult FacebookZakelijkAccount()
         {
             return View();

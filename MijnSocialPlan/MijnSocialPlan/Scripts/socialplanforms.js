@@ -105,8 +105,12 @@ function plusContent(caller) {
     var newInput = '<div class="input-group" id="inputContentRow-' + kanaalID + '-' + (count + 1) + '" style="margin-bottom: 3px;">'+
         '<select class="form-control" id="inputContent-' + kanaalID + '-' + (count + 1) + '" onchange="contentItemIngevuld(this);">' +
                                     '<option>soort post...</option>' +
-                                    '<option>type a</option>' +
-                                    '<option>type b</option>' +
+                                    '<option>Iets Grappigs</option>' +
+                                    '<option>Iets Groots</option>' +
+                                    '<option>Iets met de Groep</option>' +
+                                    '<option>Iets Gratis</option>' +
+                                    '<option>Nieuwsfeitje</option>' +
+                                    '<option>Info / Nieuw product</option>' +
                                 '</select>'+
     '<span class="input-group-btn"><button class="btn btn-danger" type="button" onclick="askRemoveContent(this);"><span class="glyphicon glyphicon-remove"></span></button></span></div>';
 
@@ -323,8 +327,12 @@ $('button#plusKanaal').click(function () {
                             '<div id="contentbox" class="corespathsbox col-lg-3 inline">' +
                                 '<select class="form-control" id="inputContent-1" onchange="contentItemIngevuld(this);" style="margin-bottom: 3px;">' +
                                     '<option>soort post...</option>' +
-                                    '<option>type a</option>' +
-                                    '<option>type b</option>' +
+                                    '<option>Iets Grappigs</option>' +
+                                    '<option>Iets Groots</option>' +
+                                    '<option>Iets met de Groep</option>' +
+                                    '<option>Iets Gratis</option>' +
+                                    '<option>Nieuwsfeitje</option>' +
+                                    '<option>Info / Nieuw product</option>' +
                                 '</select>' +
                                 '<button type="button" class="vol btn btn-primary btn-md" onclick="plusContent(this);">' +
                                     '<span class="glyphicon glyphicon-plus inline"></span> Content' +

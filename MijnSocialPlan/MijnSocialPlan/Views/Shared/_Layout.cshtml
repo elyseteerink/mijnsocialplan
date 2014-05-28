@@ -19,8 +19,8 @@
                 </button>
                 <!--@Html.ActionLink("MijnSocialPlan.nl", "Index", "Home", null, new { @class = "navbar-brand" })-->
                 <a class="navbar-brand" href="~/">
-                    &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-up"></span>
-                    @*<img src="~/Content/Images/logo.png" />*@
+                    @*&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-up"></span>*@
+                    <img src="~/Content/Images/logo.png" />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -39,7 +39,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Handleiding<span class="caret"></span></a>
                         <ul class="dropdown-menu" aria-labelledby="download">
-                            <li>@Html.ActionLink("Handleiding Index", "Index", "Handleiding")</li>
+                            @*<li>@Html.ActionLink("Handleiding Index", "Index", "Handleiding")</li>*@
                             <li>@Html.ActionLink("Facebook zakelijk account aanmaken", "FacebookZakelijkAccount", "Handleiding")</li>
                             <li>@Html.ActionLink("Twitter zakelijk account aanmaken", "TwitterZakelijkAccount", "Handleiding")</li>
                             <li>@Html.ActionLink("Kort maar krachtig: wat kan je met Social Media?", "InfoSocialMedia", "Handleiding")</li>
@@ -49,7 +49,11 @@
                             <li>@Html.ActionLink("Posts, tweets… Tips & Tricks!", "TipsEnTricks", "Handleiding")</li>
                             <li>@Html.ActionLink("Posten op Facebook", "PostenOpFacebook", "Handleiding")</li>
                             <li>@Html.ActionLink("Tweeten op Twitter", "TweetenOpTwitter", "Handleiding")</li>
-                            <li>@Html.ActionLink("Social contentstrategie", "SocialContentStrategie", "Handleiding")</li>
+                            <li>@Html.ActionLink("Social/content strategie, wat is dat?", "SocialContentStrategie", "Handleiding")</li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="~/Content/Social-contentHandleiding.pdf" target="_blank"><span class="glyphicon glyphicon-download-alt"></span> Download de complete handleiding</a>
+                            </li>
                         </ul>
                     </li>
                     

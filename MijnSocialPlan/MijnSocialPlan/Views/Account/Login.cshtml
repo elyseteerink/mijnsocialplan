@@ -4,14 +4,14 @@
     ViewBag.Title = "Inloggen";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 <div class="row">
     <div class="col-md-6 col-lg-6">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Gebruik uw gegevens om in te loggen.</h4>
+                <h4>Gebruik uw gegevens om in te loggen</h4>
                 <hr />
                 @Html.ValidationSummary(true)
                 <div class="form-group">
