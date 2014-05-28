@@ -3,7 +3,7 @@
 @if(Model.Count > 0) {
     foreach (var item in Model)
     {
-        <li><a href="#">@Html.DisplayFor(modelItem => item.Titel)</a></li>
+        <li><a href="#" onclick="$('#opgeslagenPlanPopup').fadeIn();">@Html.DisplayFor(modelItem => item.Titel)</a></li>
     }
 }
 else

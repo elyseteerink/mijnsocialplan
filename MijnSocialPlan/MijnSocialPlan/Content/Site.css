@@ -22,7 +22,9 @@ h2, h3, h4 {
     /*padding-left: 20px;*/
 }
 
-
+#saveAlertPlanTitel {
+    font-weight: bold;
+}
 
 .jumbotron {
     background: 100% url('Images/shutterstock_116229424.jpg');

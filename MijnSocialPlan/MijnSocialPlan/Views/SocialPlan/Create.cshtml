@@ -1,8 +1,15 @@
 ﻿@{
     ViewBag.Title = "Nieuw Social Plan maken";
 }
+
 <h2 id="plantitel">@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
+
+
+
+<div id="savedAlert" class="alert alert-success" style="display: none;">Jouw Social plan <span id="saveAlertPlanTitel"></span>, is opgeslagen. Je kan hem terugvinden in het menu onder 'Mijn Social Plannen'. *Het inhoudelijk opslaan van de Social plannen werkt niet in dit prototype.</div>
+<div class="pull-right">
+    <button type="button" class="btn btn-primary" onclick="$('#printPopup').fadeIn();" data-dismiss="modal"><span class="glyphicon glyphicon-print"></span></button>
+</div>
 
 <script>
 
@@ -495,6 +502,16 @@
                     </button>
                 </div>
             </div>
+            <br/><br />
+            <div class="form-group">
+
+                <label for="checkboxReminders" class="col-lg-2 control-label">E-mail reminders</label>
+                <div class="col-lg-1">
+                    <input type="radio" name="checkboxReminders" id="checkboxReminders" /> Aan</br>
+                    <input type="radio" name="checkboxReminders" id="checkboxReminders" checked /> Uit
+                </div>
+                <button type="button" class="infoknop btn btn-default btn-md inline" data-container="body" data-toggle="popover" data-placement="right" data-content="Kies hier aan als je een e-mail wilt ontvangen die je eraan helpt herinneren wanneer je weer een post op de planning hebt staan."><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
         </div>
         
 
@@ -517,6 +534,40 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" onclick="$('#removeContentItemSure').fadeOut();" data-dismiss="modal">Annuleren</button>
                 <button id="removeContentItemConfirmButton" type="button" class="btn btn-danger" onclick="removeContent(removeContentCallerTemp);">Verwijder</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="remindersPopup">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#remindersPopup').fadeOut();">×</button>
+                <h4 class="modal-title">E-mail reminders</h4>
+            </div>
+            <div class="modal-body">
+                <p>Deze functionaliteit is niet beschikbaar in het prototype.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="$('#remindersPopup').fadeOut();" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="printPopup">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#printPopup').fadeOut();">×</button>
+                <h4 class="modal-title">Social plan printen</h4>
+            </div>
+            <div class="modal-body">
+                <p>Deze functionaliteit is niet beschikbaar in het prototype.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="$('#printPopup').fadeOut();" data-dismiss="modal">Ok</button>
             </div>
         </div>
     </div>

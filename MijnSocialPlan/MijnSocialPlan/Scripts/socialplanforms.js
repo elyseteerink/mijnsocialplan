@@ -216,6 +216,23 @@ function activeTab(tab) {
 
 function setTitel() {
     $('#plantitel').text($('#inputTitel').val());
+    $('#saveAlertPlanTitel').text($('#inputTitel').val());
+
+    if ($('#userPlannenLi-' + $('#inputTitel').val()).length == 0) {
+        var planMenuItem = '<li id="userPlannenLi-' + $('#inputTitel').val() + '"><a href="#" onclick="$(\'#opgeslagenPlanPopup\').fadeIn();">' + $('#inputTitel').val() + '</a></li>';
+        $('#userPlannenUl').prepend(planMenuItem);
+    }
+
+    showSaved();
+}
+
+function showSaved()
+{
+    $('#savedAlert').slideDown('slow');
+
+    setTimeout(function () {
+        $('#savedAlert').slideUp('slow');
+    }, 10000);
 }
 
 function kanaalTitelIngevuld(caller) {
@@ -540,4 +557,13 @@ $('#inputKanaalTitel-1').keyup(function (e) {
     if (e.keyCode == 13) {
         kanaalTitelIngevuld($('#inputKanaalTitel-1'));
     }
+});
+
+
+$("input[name=checkboxReminders]:radio").change(function () {
+    $('#remindersPopup').fadeIn();
+});
+
+$("#printknop").click(function () {
+    $('#printPopup').fadeIn();
 });
